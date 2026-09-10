@@ -129,7 +129,12 @@ img { max-width: 100%; display: block; }
   gap: 1.5rem;
   padding: 1.6rem 0;
   border-bottom: 1px solid var(--stone);
+  text-decoration: none;
+  color: inherit;
 }
+
+a.rubrique { cursor: pointer; }
+a.rubrique:hover h3 { color: var(--gold); }
 
 .rubrique h3 { margin-bottom: 0.25rem; font-size: 1.3rem; }
 .rubrique p { margin: 0; color: var(--slate); }
@@ -140,6 +145,21 @@ img { max-width: 100%; display: block; }
 
 .rubrique.soon h3 { color: var(--slate); }
 .rubrique.soon .tag { color: var(--stone); }
+
+/* ---------- Venue entries within a category page ---------- */
+.venue { margin-top: 1.6rem; }
+.venue h3 {
+  font-size: 1.2rem;
+  color: var(--brick-dark);
+  margin-bottom: 0.2rem;
+}
+.venue .venue-meta {
+  font-size: 0.88rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.venue p { margin: 0.2rem 0 0; }
 
 @media (max-width: 640px) {
   .rubrique { grid-template-columns: 1fr; gap: 0.3rem; }
