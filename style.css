@@ -289,3 +289,6 @@ a:focus-visible, button:focus-visible {
   object-fit: cover;
   display: block;
 }
+@media (max-width: 720px) {
+  .hero-photo img { aspect-ratio: 3 / 2; }
+}
