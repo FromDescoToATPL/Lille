@@ -301,3 +301,7 @@ a:focus-visible, button:focus-visible {
   color: var(--gold);
 }
 a.rubrique:hover .more { color: var(--brick); }
+.rubrique .more { text-align: right; }
+@media (min-width: 641px) {
+  .rubrique .more { grid-column: 2; }
+}
