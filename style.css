@@ -278,3 +278,14 @@ a:focus-visible, button:focus-visible {
   text-align: center;
   padding-top: 0.6rem;
 }
+.hero-photo {
+  margin: 0;
+  border: 1px solid var(--stone);
+  overflow: hidden;
+}
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
