@@ -292,3 +292,12 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 720px) {
   .hero-photo img { aspect-ratio: 3 / 2; }
 }
+.rubrique .more {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+a.rubrique:hover .more { color: var(--brick); }
