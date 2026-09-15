@@ -348,3 +348,17 @@ a.rubrique:hover .more { color: var(--brick); }
   color: var(--brick-dark);
 }
 .leaflet-popup-content a { font-size: 0.85rem; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #201a15;
+    --ink: #ece4d6;
+    --brick: #d97a52;
+    --brick-dark: #e8916d;
+    --gold: #d1a24a;
+    --stone: #46392c;
+    --slate: #aab3bd;
+  }
+  .infos-pratiques, .affiliate-box {
+    background: #2a231c;
+  }
+}
