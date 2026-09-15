@@ -305,3 +305,46 @@ a.rubrique:hover .more { color: var(--brick); }
 @media (min-width: 641px) {
   .rubrique .more { grid-column: 2; }
 }
+/* ---------- Carte ---------- */
+.map-wrap {
+  max-width: 1040px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+#carte {
+  height: 70vh;
+  min-height: 420px;
+  border: 1px solid var(--stone);
+}
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 1rem 0 2rem;
+  padding: 0 1.5rem;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+.map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.map-legend .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 2px;
+  font-family: 'Public Sans', sans-serif;
+}
+.leaflet-popup-content b {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--brick-dark);
+}
+.leaflet-popup-content a { font-size: 0.85rem; }
