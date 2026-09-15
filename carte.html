@@ -81,10 +81,16 @@ var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652" };
 
 var map = L.map('carte').setView([50.6350, 3.0600], 14);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  maxZoom: 19
-}).addTo(map);
+var sombre = window.matchMedia('(prefers-color-scheme: dark)').matches;
+L.tileLayer(
+  sombre
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributisions">CARTO</a>',
+    maxZoom: 19
+  }
+).addTo(map);
 
 lieux.forEach(function(l) {
   var icone = L.divIcon({
