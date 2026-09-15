@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte de Lille — Regards sur Lille</title>
+<meta name="description" content="Carte interactive des lieux à visiter, restaurants et bars recommandés à Lille.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="wordmark" href="index.html">Regards sur <em>Lille</em></a>
+  <nav class="lang-switch">
+    <a href="carte.html">FR</a>
+    <a href="en/carte.html">EN</a>
+  </nav>
+</div>
+
+<article class="post" style="max-width: 1040px;">
+  <h1>La carte du guide</h1>
+  <p class="meta">Carte</p>
+  <p>Tous les lieux à visiter, restaurants et bars recommandés dans le guide, sur une seule carte. Touche un point pour voir de quoi il s'agit.</p>
+</article>
+
+<div class="map-legend">
+  <span><span class="dot" style="background: var(--brick-dark);"></span> Lieux à visiter</span>
+  <span><span class="dot" style="background: var(--gold);"></span> Restaurants</span>
+  <span><span class="dot" style="background: var(--slate);"></span> Bars &amp; sorties</span>
+</div>
+
+<div class="map-wrap">
+  <div id="carte"></div>
+</div>
+
+<footer>
+  <p>Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// Chaque lieu : nom, coordonnées, catégorie (lieu / resto / bar),
+// description courte, et lien vers la page complète.
+// Pour corriger un point mal placé : ajuste juste "lat" et "lng".
+var lieux = [
+  { nom: "Grand'Place (Vieille Bourse)", lat: 50.6372, lng: 3.0637, cat: "lieu",
+    desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter.html" },
+  { nom: "Beffroi de l'Hôtel de Ville", lat: 50.6365, lng: 3.0703, cat: "lieu",
+    desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter.html" },
+  { nom: "Palais des Beaux-Arts", lat: 50.6304, lng: 3.0629, cat: "lieu",
+    desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter.html" },
+  { nom: "Citadelle de Lille", lat: 50.6429, lng: 3.0447, cat: "lieu",
+    desc: "Forteresse de Vauban et son parc.", lien: "lieux-a-visiter.html" },
+  { nom: "Notre-Dame-de-la-Treille", lat: 50.6386, lng: 3.0625, cat: "lieu",
+    desc: "Cathédrale moderne à façade de marbre.", lien: "lieux-a-visiter.html" },
+
+  { nom: "Au Vieux de la Vieille", lat: 50.6390, lng: 3.0625, cat: "resto",
+    desc: "L'estaminet le plus connu de la ville.", lien: "restaurants.html" },
+  { nom: "La Ch'tite Brigitte", lat: 50.6380, lng: 3.0615, cat: "resto",
+    desc: "Petite adresse rustique, gratin au maroilles.", lien: "restaurants.html" },
+  { nom: "Les Ptiots", lat: 50.6395, lng: 3.0650, cat: "resto",
+    desc: "Cuisine traditionnelle, rue de Gand.", lien: "restaurants.html" },
+  { nom: "Le Barbier qui fume", lat: 50.6380, lng: 3.0630, cat: "resto",
+    desc: "Cuisine au feu de bois, décor industriel.", lien: "restaurants.html" },
+
+  { nom: "Le Solférino", lat: 50.6280, lng: 3.0530, cat: "bar",
+    desc: "Bar-tabac convivial, rue Solférino.", lien: "bars.html" },
+  { nom: "Seven Bar", lat: 50.6278, lng: 3.0533, cat: "bar",
+    desc: "Un habitué de la rue Solférino.", lien: "bars.html" },
+  { nom: "Au Gré du Vin", lat: 50.6375, lng: 3.0620, cat: "bar",
+    desc: "Bar à vin feutré, Vieux-Lille.", lien: "bars.html" },
+  { nom: "Wazemmes (place Sébastopol)", lat: 50.6270, lng: 3.0470, cat: "bar",
+    desc: "Quartier éclectique, bars et bières artisanales.", lien: "bars.html" }
+];
+
+var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652" };
+
+var map = L.map('carte').setView([50.6350, 3.0600], 14);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19
+}).addTo(map);
+
+lieux.forEach(function(l) {
+  var icone = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;border-radius:50%;background:' + couleurs[l.cat] + ';border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.4);"></div>',
+    iconSize: [14, 14],
+    iconAnchor: [7, 7]
+  });
+  L.marker([l.lat, l.lng], { icon: icone }).addTo(map)
+    .bindPopup('<b>' + l.nom + '</b><br>' + l.desc + '<br><a href="' + l.lien + '">Voir la fiche complète →</a>');
+});
+</script>
+
+</body>
+</html>
