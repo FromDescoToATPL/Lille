@@ -115,35 +115,45 @@ img { max-width: 100%; display: block; }
   .gables { max-width: 320px; margin: 0 auto; }
 }
 
-/* ---------- Rubrique list (no cards, editorial list) ---------- */
-.rubriques {
+/* ---------- Grille de rubriques (tuiles compactes) ---------- */
+.tuiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
   max-width: 1040px;
   margin: 0 auto 3rem;
   padding: 0 1.5rem;
 }
 
-.rubrique {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 1.5rem;
-  padding: 1.9rem 0;
-  border-bottom: 1px solid var(--stone);
+@media (min-width: 721px) {
+  .tuiles { grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+}
+
+.tuile {
+  display: block;
+  padding: 1.1rem 1.1rem 1.2rem;
+  background: #fbf8f1;
+  border: 1px solid var(--stone);
+  border-radius: 3px;
   text-decoration: none;
   color: inherit;
+  transition: border-color 0.15s ease;
 }
+.tuile:hover { border-color: var(--brick); }
 
-a.rubrique { cursor: pointer; }
-a.rubrique:hover h3 { color: var(--gold); }
-
-.rubrique h3 { margin-bottom: 0.25rem; font-size: 1.3rem; }
-.rubrique p { margin: 0; color: var(--slate); }
-.rubrique .tag {
-  font-size: 0.85rem;
-  color: var(--gold);
+.tuile h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.3rem;
+  color: var(--brick-dark);
 }
+.tuile:hover h3 { color: var(--brick); }
 
-.rubrique.soon h3 { color: var(--slate); }
-.rubrique.soon .tag { color: var(--stone); }
+.tuile p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--slate);
+}
 
 /* ---------- Venue entries within a category page ---------- */
 .venue { margin-top: 1.6rem; }
@@ -159,10 +169,6 @@ a.rubrique:hover h3 { color: var(--gold); }
   margin-bottom: 0.4rem;
 }
 .venue p { margin: 0.2rem 0 0; }
-
-@media (max-width: 640px) {
-  .rubrique { grid-template-columns: 1fr; gap: 0.3rem; }
-}
 
 /* ---------- Featured / à la une ---------- */
 .featured {
@@ -292,19 +298,6 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 720px) {
   .hero-photo img { aspect-ratio: 3 / 2; }
 }
-.rubrique .more {
-  display: block;
-  margin-top: 0.6rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-size: 0.85rem;
-  color: var(--gold);
-  text-align: right;
-}
-a.rubrique:hover .more { color: var(--brick); }
-@media (min-width: 641px) {
-  .rubrique .more { grid-column: 2; }
-}
 
 /* ---------- Carte ---------- */
 .map-wrap {
@@ -348,18 +341,6 @@ a.rubrique:hover .more { color: var(--brick); }
 }
 .leaflet-popup-content a { font-size: 0.85rem; }
 
-/* ---------- Titres de groupe de rubriques ---------- */
-.rubrique-group-title {
-  max-width: 1040px;
-  margin: 3rem auto 0.8rem;
-  padding: 0 1.5rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--brick);
-}
-
 /* ---------- Mode sombre automatique ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -371,7 +352,7 @@ a.rubrique:hover .more { color: var(--brick); }
     --stone: #46392c;
     --slate: #aab3bd;
   }
-  .infos-pratiques, .affiliate-box {
+  .infos-pratiques, .affiliate-box, .tuile {
     background: #2a231c;
   }
 }
