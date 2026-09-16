@@ -120,7 +120,6 @@ img { max-width: 100%; display: block; }
   max-width: 1040px;
   margin: 0 auto 3rem;
   padding: 0 1.5rem;
-  border-top: 1px solid var(--stone);
 }
 
 .rubrique {
@@ -256,6 +255,7 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
 /* ---------- Photos ---------- */
 .photo-frame {
   display: block;
@@ -299,12 +299,13 @@ a:focus-visible, button:focus-visible {
   font-style: italic;
   font-size: 0.85rem;
   color: var(--gold);
+  text-align: right;
 }
 a.rubrique:hover .more { color: var(--brick); }
-.rubrique .more { text-align: right; }
 @media (min-width: 641px) {
   .rubrique .more { grid-column: 2; }
 }
+
 /* ---------- Carte ---------- */
 .map-wrap {
   max-width: 1040px;
@@ -320,11 +321,9 @@ a.rubrique:hover .more { color: var(--brick); }
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
-  margin: 1rem 0 2rem;
+  margin: 1rem auto 2rem;
   padding: 0 1.5rem;
   max-width: 1040px;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 0.9rem;
   color: var(--slate);
 }
@@ -348,6 +347,20 @@ a.rubrique:hover .more { color: var(--brick); }
   color: var(--brick-dark);
 }
 .leaflet-popup-content a { font-size: 0.85rem; }
+
+/* ---------- Titres de groupe de rubriques ---------- */
+.rubrique-group-title {
+  max-width: 1040px;
+  margin: 3rem auto 0.8rem;
+  padding: 0 1.5rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--brick);
+}
+
+/* ---------- Mode sombre automatique ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
     --cream: #201a15;
@@ -361,23 +374,4 @@ a.rubrique:hover .more { color: var(--brick); }
   .infos-pratiques, .affiliate-box {
     background: #2a231c;
   }
-}
-.rubrique-group-title {
-  max-width: 1040px;
-  margin: 2.5rem auto 0.5rem;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--brick);
-}
-.rubrique-group-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--stone);
 }
