@@ -362,3 +362,12 @@ a.rubrique:hover .more { color: var(--brick); }
     background: #2a231c;
   }
 }
+.rubrique-group-title {
+  max-width: 1040px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
