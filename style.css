@@ -274,18 +274,8 @@ article.post li { margin-bottom: 0.5rem; }
 .infos-pratiques dt { font-weight: 600; color: var(--brick-dark); }
 .infos-pratiques dd { margin: 0; }
 
-/* ---------- Monetisation ----------
-   Les emplacements publicitaires sont masqués tant que
-   le compte AdSense n'est pas approuvé.
-   Pour les réafficher : supprimer la ligne "display: none;"
-   ci-dessous. Rien d'autre à changer.
-   ------------------------------------ */
-.ad-slot {
-  display: none;
-  max-width: var(--max-width);
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
+/* ---------- Monetisation ---------- */
+.ad-slot { max-width: var(--max-width); margin: 2rem auto; padding: 0 1.5rem; }
 .ad-slot .frame {
   border: 1px dashed var(--stone);
   padding: 1rem;
@@ -377,6 +367,29 @@ a:focus-visible, button:focus-visible {
 .leaflet-popup-content b { font-family: 'Fraunces', Georgia, serif; color: var(--brick-dark); }
 .leaflet-popup-content a { font-size: 0.85rem; }
 
+/* ---------- Transitions entre les pages ----------
+   Fondu léger d'une page à l'autre. L'en-tête et le menu
+   gardent leur place au lieu de clignoter.
+   Les navigateurs qui ne gèrent pas ces règles les ignorent :
+   la navigation reste alors strictement normale.
+   ------------------------------------------------- */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+  animation-timing-function: ease;
+}
+
+.topbar  { view-transition-name: entete; }
+.mainnav { view-transition-name: menu; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
+
 /* ---------- Mode sombre automatique ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -391,4 +404,4 @@ a:focus-visible, button:focus-visible {
     --on-brick: #201a15;
   }
   .infos-pratiques, .affiliate-box { background: #2a231c; }
-   }
+}
