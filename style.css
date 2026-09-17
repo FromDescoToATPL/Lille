@@ -274,8 +274,18 @@ article.post li { margin-bottom: 0.5rem; }
 .infos-pratiques dt { font-weight: 600; color: var(--brick-dark); }
 .infos-pratiques dd { margin: 0; }
 
-/* ---------- Monetisation ---------- */
-.ad-slot { max-width: var(--max-width); margin: 2rem auto; padding: 0 1.5rem; }
+/* ---------- Monetisation ----------
+   Les emplacements publicitaires sont masqués tant que
+   le compte AdSense n'est pas approuvé.
+   Pour les réafficher : supprimer la ligne "display: none;"
+   ci-dessous. Rien d'autre à changer.
+   ------------------------------------ */
+.ad-slot {
+  display: none;
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
 .ad-slot .frame {
   border: 1px dashed var(--stone);
   padding: 1rem;
@@ -381,4 +391,4 @@ a:focus-visible, button:focus-visible {
     --on-brick: #201a15;
   }
   .infos-pratiques, .affiliate-box { background: #2a231c; }
-}
+   }
