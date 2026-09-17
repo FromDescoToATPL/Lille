@@ -8,17 +8,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
 <div class="topbar">
   <a class="wordmark" href="index.html">Regards sur <em>Lille</em></a>
   <nav class="lang-switch">
-    <a href="lieux-a-visiter.html">FR</a>
+    <a class="active" href="lieux-a-visiter.html">FR</a>
     <a href="en/lieux-a-visiter.html">EN</a>
   </nav>
 </div>
+
+<nav class="mainnav">
+  <div class="mainnav-inner">
+    <a href="index.html">Accueil</a>
+    <a href="evenements.html">Événements</a>
+    <a class="active" href="lieux-a-visiter.html">Lieux</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="bars.html">Bars</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="carte.html">Carte</a>
+  </div>
+</nav>
 
 <article class="post">
   <h1>Lieux à visiter à Lille</h1>
@@ -71,7 +84,18 @@
 </article>
 
 <footer>
-  <p>Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
+  <ul class="footer-links">
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="lieux-a-visiter.html">Lieux à visiter</a></li>
+    <li><a href="restaurants.html">Restaurants</a></li>
+    <li><a href="bars.html">Bars &amp; sorties</a></li>
+    <li><a href="excursions.html">Excursions</a></li>
+    <li><a href="carte.html">Carte</a></li>
+    <li><a href="itineraires.html">Itinéraires</a></li>
+    <li><a href="infos-pratiques.html">Infos pratiques</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+  </ul>
+  <p class="footer-note">Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
 </footer>
 
 </body>

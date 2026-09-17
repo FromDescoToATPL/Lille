@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=9">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
@@ -16,10 +17,22 @@
 <div class="topbar">
   <a class="wordmark" href="index.html">Regards sur <em>Lille</em></a>
   <nav class="lang-switch">
-    <a href="carte.html">FR</a>
+    <a class="active" href="carte.html">FR</a>
     <a href="en/carte.html">EN</a>
   </nav>
 </div>
+
+<nav class="mainnav">
+  <div class="mainnav-inner">
+    <a href="index.html">Accueil</a>
+    <a href="evenements.html">Événements</a>
+    <a href="lieux-a-visiter.html">Lieux</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="bars.html">Bars</a>
+    <a href="excursions.html">Excursions</a>
+    <a class="active" href="carte.html">Carte</a>
+  </div>
+</nav>
 
 <article class="post" style="max-width: 1040px;">
   <h1>La carte du guide</h1>
@@ -38,7 +51,18 @@
 </div>
 
 <footer>
-  <p>Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
+  <ul class="footer-links">
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="lieux-a-visiter.html">Lieux à visiter</a></li>
+    <li><a href="restaurants.html">Restaurants</a></li>
+    <li><a href="bars.html">Bars &amp; sorties</a></li>
+    <li><a href="excursions.html">Excursions</a></li>
+    <li><a href="carte.html">Carte</a></li>
+    <li><a href="itineraires.html">Itinéraires</a></li>
+    <li><a href="infos-pratiques.html">Infos pratiques</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+  </ul>
+  <p class="footer-note">Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -49,7 +73,7 @@
 var lieux = [
   { nom: "Grand'Place (Vieille Bourse)", lat: 50.6372, lng: 3.0637, cat: "lieu",
     desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter.html" },
-  { nom: "Beffroi de l'Hôtel de Ville", lat: 50.6305, lng: 3.0699, cat: "lieu",
+  { nom: "Beffroi de l'Hôtel de Ville", lat: 50.6365, lng: 3.0703, cat: "lieu",
     desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter.html" },
   { nom: "Palais des Beaux-Arts", lat: 50.6304, lng: 3.0629, cat: "lieu",
     desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter.html" },
@@ -81,16 +105,10 @@ var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652" };
 
 var map = L.map('carte').setView([50.6350, 3.0600], 14);
 
-var sombre = window.matchMedia('(prefers-color-scheme: dark)').matches;
-L.tileLayer(
-  sombre
-    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-  {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributisions">CARTO</a>',
-    maxZoom: 19
-  }
-).addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19
+}).addTo(map);
 
 lieux.forEach(function(l) {
   var icone = L.divIcon({
