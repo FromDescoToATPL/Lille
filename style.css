@@ -109,13 +109,13 @@ img { max-width: 100%; display: block; }
 /* ---------- Titres de section ---------- */
 .section-title {
   max-width: 1040px;
-  margin: 0 auto 1.3rem;
+  margin: 0 auto 1.5rem;
   padding: 0 1.5rem;
   font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
   font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--brick);
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 /* ---------- Section 1 : liste éditoriale ---------- */
