@@ -102,9 +102,12 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.5rem;
+  gap: 1.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+.mainnav-inner::-webkit-scrollbar { display: none; }
 .mainnav a {
   padding: 0.8rem 0;
   font-size: 0.95rem;
@@ -113,10 +116,6 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
-}
-@media (max-width: 720px) {
-  .mainnav-inner { gap: 0 1.1rem; padding: 0.3rem 1.2rem; }
-  .mainnav a { padding: 0.45rem 0; font-size: 0.9rem; }
 }
 .mainnav a:hover { color: var(--brick); }
 .mainnav a.active { color: var(--brick); border-bottom-color: var(--brick); }
@@ -285,7 +284,15 @@ article.post li { margin-bottom: 0.5rem; }
 .infos-pratiques dd { margin: 0; }
 
 /* ---------- Monetisation ---------- */
-.ad-slot { max-width: var(--max-width); margin: 2rem auto; padding: 0 1.5rem; }
+/* Les emplacements publicitaires restent masqués tant que
+   le compte AdSense n'est pas approuvé.
+   Pour les réafficher : supprimer la ligne "display: none;". */
+.ad-slot {
+  display: none;
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
 .ad-slot .frame {
   border: 1px dashed var(--stone);
   padding: 1rem;
