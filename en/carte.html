@@ -45,6 +45,7 @@
   <span><span class="dot" style="background: var(--brick-dark);"></span> Places to see</span>
   <span><span class="dot" style="background: var(--gold);"></span> Restaurants</span>
   <span><span class="dot" style="background: var(--slate);"></span> Bars &amp; nightlife</span>
+  <span><span class="dot" style="background: #4a7c59;"></span> Free car parks</span>
 </div>
 
 <div class="map-wrap">
@@ -99,10 +100,15 @@ var lieux = [
   { nom: "Au Gré du Vin", lat: 50.6375, lng: 3.0620, cat: "bar",
     desc: "Cosy wine bar, Vieux-Lille.", lien: "bars.html" },
   { nom: "Wazemmes (place Sébastopol)", lat: 50.6270, lng: 3.0470, cat: "bar",
-    desc: "Eclectic district, craft beer bars.", lien: "bars.html" }
+    desc: "Eclectic district, craft beer bars.", lien: "bars.html" },
+
+  { nom: "Passerelle Vauban car park", lat: 50.644928, lng: 3.037931, cat: "parking",
+    desc: "Free. A 10–15 min walk to the centre through the Citadelle.", lien: "infos-pratiques.html" },
+  { nom: "Colysée car park", lat: 50.639012, lng: 3.034379, cat: "parking",
+    desc: "Free. About 20 min on foot to the centre through the park.", lien: "infos-pratiques.html" }
 ];
 
-var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652" };
+var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652", parking: "#4a7c59" };
 
 var map = L.map('carte').setView([50.6350, 3.0600], 14);
 
