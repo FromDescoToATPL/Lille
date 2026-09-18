@@ -60,7 +60,7 @@
   <div class="venue">
     <h3>Le Vieux-Lille — pour un verre plus posé</h3>
     <span class="venue-meta">Centre historique</span>
-    <p>Une ambiance nettement plus feutrée, avec des bars à vin comme <strong>Au Gré du Vin</strong> ou <strong>Nectar Dégustation</strong>, où l'on vient pour découvrir une bouteille plutôt que pour enchaîner les tournées. Le cadre — pierre et poutres apparentes — s'y prête particulièrement bien en soirée. Coté bar à cocktail, je ne peux que vous conseiller le quaie des bananes. situé à la fin de la rue royale, l'ambiance y est festive et les cocktails sont vraiment bon et abordable.  </p>
+    <p>Une ambiance nettement plus feutrée, avec des bars à vin comme <strong>Au Gré du Vin</strong> ou <strong>Nectar Dégustation</strong>, où l'on vient pour découvrir une bouteille plutôt que pour enchaîner les tournées. Le cadre — pierre et poutres apparentes — s'y prête particulièrement bien en soirée.</p>
   </div>
 
   <div class="venue">
@@ -94,6 +94,28 @@
   </ul>
   <p class="footer-note">Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
 </footer>
+
+<a class="haut" href="#" aria-label="Revenir en haut de la page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script>
+(function () {
+  var b = document.querySelector('.haut');
+  if (!b) return;
+  function maj() { b.classList.toggle('visible', window.scrollY > 700); }
+  window.addEventListener('scroll', maj, { passive: true });
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+  });
+  maj();
+})();
+</script>
 
 </body>
 </html>
