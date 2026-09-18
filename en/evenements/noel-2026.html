@@ -37,7 +37,7 @@
 
 <article class="post">
   <h1>Lille's Christmas market: the 2026 guide</h1>
-  <p class="meta">Christmas Village on Place Rihour, Ferris wheel on the Grand'Place · [DATES TO CONFIRM]</p>
+  <p class="meta">Christmas Village on Place Rihour, Ferris wheel on the Grand'Place · <strong>18 November to 30 December 2026</strong></p>
 
   <p>This is the busiest time of year in Lille, and not only with tourists: locals go too, often more than once. The Christmas Village takes over Place Rihour for six weeks, the Ferris wheel goes up on the Grand'Place, and the whole centre switches to festive lighting.</p>
 
@@ -64,6 +64,10 @@
   <p>Fifty metres high, thirty-six cabins. It has been part of the Lille skyline since the early 1990s, and the view over the lit rooftops is worth the ticket — especially at dusk, when the lights below start to outshine the sky.</p>
 
   <p>My advice: ride it on a weeknight. On a Saturday the queue can easily take forty minutes for a ride that lasts a few.</p>
+
+  <p>One detail few guides mention: <strong>the wheel stays up long after the market closes</strong>. The chalets come down on 30 December; the wheel keeps turning until 16 January 2027. In early January you'll have it almost to yourself — same view, no crowd.</p>
+
+  <p>Hours: midday to midnight on weekdays, from 10am at weekends and during school holidays.</p>
 
   <h2>What's on the stalls</h2>
 
@@ -104,7 +108,7 @@
 
   <h2>What it costs</h2>
 
-  <p>Entry to the village is free. The spending comes from everything else: a few euros for a waffle or a mulled wine, and around eight euros for a turn on the Ferris wheel. Exact prices change yearly — check on site.</p>
+  <p>Entry to the village is free. The spending comes from everything else: a few euros for a waffle or a mulled wine, and about €7 for a turn on the Ferris wheel, €5 for children under 1.40 m. No booking needed.</p>
 
   <h2>If you want more</h2>
 
@@ -118,12 +122,14 @@
   <div class="infos-pratiques">
     <h2>At a glance</h2>
     <dl>
-      <dt>Dates</dt><dd>[TO CONFIRM — check lille.fr]</dd>
-      <dt>Hours</dt><dd>[TO CONFIRM]</dd>
+      <dt>Dates</dt><dd><strong>18 November – 30 December 2026</strong></dd>
+      <dt>Hours</dt><dd>Sunday to Thursday 11am–8.30pm · Friday and Saturday 11am–10pm</dd>
       <dt>Where</dt><dd>Place Rihour (chalets) and Grand'Place (Ferris wheel)</dd>
-      <dt>Metro</dt><dd>Rihour station</dd>
+      <dt>Metro</dt><dd>Rihour, line 1</dd>
       <dt>Entry</dt><dd>Free; some attractions charged</dd>
-      <dt>Closed</dt><dd>25 December</dd>
+      <dt>Closing</dt><dd>24 December at 6pm; closed 25 December</dd>
+      <dt>Ferris wheel</dt><dd>18 November 2026 to 16 January 2027</dd>
+      <dt>Accessibility</dt><dd>The market is wheelchair accessible</dd>
     </dl>
   </div>
 </article>
@@ -142,6 +148,28 @@
   </ul>
   <p class="footer-note">A Look at Lille is an independent guide, not affiliated with the City of Lille or its tourist office.</p>
 </footer>
+
+<a class="haut" href="#" aria-label="Back to top of page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script>
+(function () {
+  var b = document.querySelector('.haut');
+  if (!b) return;
+  function maj() { b.classList.toggle('visible', window.scrollY > 700); }
+  window.addEventListener('scroll', maj, { passive: true });
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+  });
+  maj();
+})();
+</script>
 
 </body>
 </html>
