@@ -102,12 +102,9 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
-  gap: 1.6rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
 }
-.mainnav-inner::-webkit-scrollbar { display: none; }
 .mainnav a {
   padding: 0.8rem 0;
   font-size: 0.95rem;
@@ -116,6 +113,10 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
+}
+@media (max-width: 720px) {
+  .mainnav-inner { gap: 0 1.1rem; padding: 0.3rem 1.2rem; }
+  .mainnav a { padding: 0.45rem 0; font-size: 0.9rem; }
 }
 .mainnav a:hover { color: var(--brick); }
 .mainnav a.active { color: var(--brick); border-bottom-color: var(--brick); }
@@ -216,6 +217,15 @@ a.rubrique:hover .more { color: var(--brick); }
   margin-bottom: 0.1rem;
 }
 .lien-pratique span { font-size: 0.88rem; color: var(--slate); }
+
+/* Sur mobile : sommaire compact, deux colonnes, titres seuls */
+@media (max-width: 720px) {
+  .liens-pratiques { grid-template-columns: repeat(2, 1fr); column-gap: 1.2rem; }
+  .lien-pratique { padding: 0.65rem 0; }
+  .lien-pratique span { display: none; }
+  .rubriques { margin-bottom: 1.8rem; }
+  .section-band { padding: 1.8rem 0 2rem; }
+}
 
 /* ---------- Venue entries ---------- */
 .venue { margin-top: 1.6rem; }
