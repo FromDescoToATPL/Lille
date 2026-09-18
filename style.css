@@ -407,6 +407,25 @@ a:focus-visible, button:focus-visible {
   ::view-transition-new(*) { animation: none !important; }
 }
 
+/* ---------- Pages en chinois : polices adaptées ----------
+   Fraunces et Public Sans ne contiennent pas de caractères chinois.
+   On bascule sur les polices système, qui rendent correctement.
+   --------------------------------------------------------- */
+html[lang^="zh"] body,
+html[lang^="zh"] h1,
+html[lang^="zh"] h2,
+html[lang^="zh"] h3,
+html[lang^="zh"] .section-title,
+html[lang^="zh"] .wordmark,
+html[lang^="zh"] .lien-pratique strong,
+html[lang^="zh"] .rubrique .more,
+html[lang^="zh"] .photo-frame figcaption {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+               "Noto Sans SC", system-ui, sans-serif;
+  font-style: normal;
+}
+html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
+
 /* ---------- Mode sombre automatique ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
