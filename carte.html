@@ -1,51 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Map of Lille — A Look at Lille</title>
-<meta name="description" content="Interactive map of recommended places to see, restaurants and bars in Lille.">
+<title>Carte de Lille — Regards sur Lille</title>
+<meta name="description" content="Carte interactive des lieux à visiter, restaurants et bars recommandés à Lille.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="fr" href="https://fromdescotoatpl.github.io/Lille/carte.html">
 <link rel="alternate" hreflang="en" href="https://fromdescotoatpl.github.io/Lille/en/carte.html">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../style.css?v=9">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=9">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 
 <div class="topbar">
-  <a class="wordmark" href="index.html">A Look at <em>Lille</em></a>
+  <a class="wordmark" href="index.html">Regards sur <em>Lille</em></a>
   <nav class="lang-switch">
-    <a href="../carte.html">FR</a>
-    <a class="active" href="carte.html">EN</a>
+    <a class="active" href="carte.html">FR</a>
+    <a href="en/carte.html">EN</a>
   </nav>
 </div>
 
 <nav class="mainnav">
   <div class="mainnav-inner">
-    <a href="index.html">Home</a>
-    <a href="evenements.html">Events</a>
-    <a href="lieux-a-visiter.html">Places</a>
+    <a href="index.html">Accueil</a>
+    <a href="evenements.html">Événements</a>
+    <a href="lieux-a-visiter.html">Lieux</a>
     <a href="restaurants.html">Restaurants</a>
     <a href="bars.html">Bars</a>
-    <a href="excursions.html">Day trips</a>
-    <a class="active" href="carte.html">Map</a>
+    <a href="excursions.html">Excursions</a>
+    <a class="active" href="carte.html">Carte</a>
   </div>
 </nav>
 
 <article class="post" style="max-width: 1040px; margin-bottom: 1.2rem;">
-  <h1>The guide's map</h1>
-  <p>Every recommended place to see, restaurant and bar from the guide, on one map. Tap a point to see what it is.</p>
+  <h1>La carte du guide</h1>
+  <p>Tous les lieux à visiter, restaurants et bars recommandés dans le guide, sur une seule carte. Touche un point pour voir de quoi il s'agit.</p>
 </article>
 
 <div class="map-legend">
-  <span><span class="dot" style="background: var(--brick-dark);"></span> Places to see</span>
+  <span><span class="dot" style="background: var(--brick-dark);"></span> Lieux à visiter</span>
   <span><span class="dot" style="background: var(--gold);"></span> Restaurants</span>
-  <span><span class="dot" style="background: var(--slate);"></span> Bars &amp; nightlife</span>
-  <span><span class="dot" style="background: #4a7c59;"></span> Free car parks</span>
+  <span><span class="dot" style="background: var(--slate);"></span> Bars &amp; sorties</span>
+  <span><span class="dot" style="background: #4a7c59;"></span> Parkings gratuits</span>
 </div>
 
 <div class="map-wrap">
@@ -54,65 +54,65 @@
 
 <footer>
   <ul class="footer-links">
-    <li><a href="evenements.html">Events</a></li>
-    <li><a href="lieux-a-visiter.html">Places to see</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="lieux-a-visiter.html">Lieux à visiter</a></li>
     <li><a href="restaurants.html">Restaurants</a></li>
-    <li><a href="bars.html">Bars &amp; nightlife</a></li>
-    <li><a href="excursions.html">Day trips</a></li>
-    <li><a href="carte.html">Map</a></li>
-    <li><a href="itineraires.html">Itineraries</a></li>
-    <li><a href="infos-pratiques.html">Practical info</a></li>
-    <li><a href="a-propos.html">About</a></li>
+    <li><a href="bars.html">Bars &amp; sorties</a></li>
+    <li><a href="excursions.html">Excursions</a></li>
+    <li><a href="carte.html">Carte</a></li>
+    <li><a href="itineraires.html">Itinéraires</a></li>
+    <li><a href="infos-pratiques.html">Infos pratiques</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
   </ul>
-  <p class="footer-note">A Look at Lille is an independent guide, not affiliated with the City of Lille or its tourist office.</p>
+  <p class="footer-note">Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-// Each place: name, coordinates, category (site / food / bar),
-// short description, and link to the full page.
-// To fix a misplaced point: just adjust "lat" and "lng".
+// Chaque lieu : nom, coordonnées, catégorie (lieu / resto / bar),
+// description courte, et lien vers la page complète.
+// Pour corriger un point mal placé : ajuste juste "lat" et "lng".
 var lieux = [
   { nom: "Grand'Place (Vieille Bourse)", lat: 50.6372, lng: 3.0637, cat: "lieu",
-    desc: "The heart of Vieux-Lille, Flemish arcades.", lien: "lieux-a-visiter.html" },
-  { nom: "Belfry of the Town Hall", lat: 50.6365, lng: 3.0703, cat: "lieu",
-    desc: "104m, UNESCO listed, panoramic view.", lien: "lieux-a-visiter.html" },
+    desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter.html" },
+  { nom: "Beffroi de l'Hôtel de Ville", lat: 50.6365, lng: 3.0703, cat: "lieu",
+    desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter.html" },
   { nom: "Palais des Beaux-Arts", lat: 50.6304, lng: 3.0629, cat: "lieu",
-    desc: "One of the largest museums in France.", lien: "lieux-a-visiter.html" },
+    desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter.html" },
   { nom: "Citadelle de Lille", lat: 50.6429, lng: 3.0447, cat: "lieu",
-    desc: "Vauban's fortress and its park.", lien: "lieux-a-visiter.html" },
+    desc: "Forteresse de Vauban et son parc.", lien: "lieux-a-visiter.html" },
   { nom: "Notre-Dame-de-la-Treille", lat: 50.6386, lng: 3.0625, cat: "lieu",
-    desc: "Modern cathedral with a marble façade.", lien: "lieux-a-visiter.html" },
+    desc: "Cathédrale moderne à façade de marbre.", lien: "lieux-a-visiter.html" },
 
   { nom: "Au Vieux de la Vieille", lat: 50.6390, lng: 3.0625, cat: "resto",
-    desc: "The city's best-known estaminet.", lien: "restaurants.html" },
+    desc: "L'estaminet le plus connu de la ville.", lien: "restaurants.html" },
   { nom: "La Ch'tite Brigitte", lat: 50.6380, lng: 3.0615, cat: "resto",
-    desc: "Small rustic address, maroilles gratin.", lien: "restaurants.html" },
+    desc: "Petite adresse rustique, gratin au maroilles.", lien: "restaurants.html" },
   { nom: "Les Ptiots", lat: 50.6395, lng: 3.0650, cat: "resto",
-    desc: "Traditional cooking, rue de Gand.", lien: "restaurants.html" },
+    desc: "Cuisine traditionnelle, rue de Gand.", lien: "restaurants.html" },
   { nom: "Le Barbier qui fume", lat: 50.6380, lng: 3.0630, cat: "resto",
-    desc: "Wood-fired cooking, industrial decor.", lien: "restaurants.html" },
+    desc: "Cuisine au feu de bois, décor industriel.", lien: "restaurants.html" },
 
   { nom: "Le Solférino", lat: 50.6280, lng: 3.0530, cat: "bar",
-    desc: "Welcoming bar-tabac, rue Solférino.", lien: "bars.html" },
+    desc: "Bar-tabac convivial, rue Solférino.", lien: "bars.html" },
   { nom: "Seven Bar", lat: 50.6278, lng: 3.0533, cat: "bar",
-    desc: "A rue Solférino regular.", lien: "bars.html" },
+    desc: "Un habitué de la rue Solférino.", lien: "bars.html" },
   { nom: "Au Gré du Vin", lat: 50.6375, lng: 3.0620, cat: "bar",
-    desc: "Cosy wine bar, Vieux-Lille.", lien: "bars.html" },
+    desc: "Bar à vin feutré, Vieux-Lille.", lien: "bars.html" },
   { nom: "Wazemmes (place Sébastopol)", lat: 50.6270, lng: 3.0470, cat: "bar",
-    desc: "Eclectic district, craft beer bars.", lien: "bars.html" },
+    desc: "Quartier éclectique, bars et bières artisanales.", lien: "bars.html" },
 
   { nom: "Les Compagnons de la Grappe", lat: 50.638541, lng: 3.062896, cat: "resto",
-    desc: "Hidden courtyard terrace, 26 rue Lepelletier.", lien: "restaurants.html" },
+    desc: "Terrasse cachée dans une cour, 26 rue Lepelletier.", lien: "restaurants.html" },
   { nom: "Tripletta", lat: 50.642678, lng: 3.066524, cat: "resto",
-    desc: "Italian on rue de Gand. Great pizzas, on the pricey side.", lien: "restaurants.html" },
+    desc: "Italien rue de Gand. Pizzas au top, prix un peu élevés.", lien: "restaurants.html" },
   { nom: "Oasis Lille Citadelle", lat: 50.637989, lng: 3.049129, cat: "resto",
-    desc: "Garden café at the entrance to the Citadelle park.", lien: "restaurants.html" },
+    desc: "Guinguette à l'entrée du parc de la Citadelle.", lien: "restaurants.html" },
 
-  { nom: "Passerelle Vauban car park", lat: 50.644928, lng: 3.037931, cat: "parking",
-    desc: "Free. A 10–15 min walk to the centre through the Citadelle.", lien: "infos-pratiques.html" },
-  { nom: "Colysée car park", lat: 50.639012, lng: 3.034379, cat: "parking",
-    desc: "Free. About 20 min on foot to the centre through the park.", lien: "infos-pratiques.html" }
+  { nom: "Parking de la Passerelle Vauban", lat: 50.644928, lng: 3.037931, cat: "parking",
+    desc: "Gratuit. 10 à 15 min à pied du centre par la Citadelle.", lien: "infos-pratiques.html" },
+  { nom: "Parking du Colysée", lat: 50.639012, lng: 3.034379, cat: "parking",
+    desc: "Gratuit. Environ 20 min à pied du centre par le parc.", lien: "infos-pratiques.html" }
 ];
 
 var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652", parking: "#4a7c59" };
@@ -132,7 +132,7 @@ lieux.forEach(function(l) {
     iconAnchor: [7, 7]
   });
   L.marker([l.lat, l.lng], { icon: icone }).addTo(map)
-    .bindPopup('<b>' + l.nom + '</b><br>' + l.desc + '<br><a href="' + l.lien + '">See the full entry →</a>');
+    .bindPopup('<b>' + l.nom + '</b><br>' + l.desc + '<br><a href="' + l.lien + '">Voir la fiche complète →</a>');
 });
 </script>
 
