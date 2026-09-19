@@ -1,4 +1,4 @@
- /* ============================================
+/* ============================================
    Design tokens — inspirés de Lille
    ============================================ */
 :root {
@@ -228,7 +228,7 @@ a.rubrique:hover .more { color: var(--brick); }
 
 /* ---------- Venue entries ---------- */
 .venue { margin-top: 1.6rem; }
-.venue h3 { font-size: 1.2rem; color: var(--brick-dark); margin-bottom: 0.2rem; }
+.venue h3 { font-size: 1.2rem; color: var(--brick-dark); margin-bottom: 0.45rem; }
 .venue .venue-meta {
   font-size: 0.88rem;
   color: var(--gold);
@@ -470,18 +470,20 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
   .venue { margin-top: 2.1rem; }
   .venue h3 { font-size: 1.3rem; }
 
-  /* --- Photos : on plafonne la hauteur, pas la largeur ---
-     Une photo verticale de 901x1600 affichée sur 560 px de large
-     ferait près de 1000 px de haut. On limite à la moitié de la
-     fenêtre et la largeur suit toute seule ; le cadre blanc fait
-     alors office de passe-partout autour des portraits. */
-  .photo-frame { max-width: 620px; }
+  /* --- Photos : un format paysage uniforme ---
+     Sur mobile, chaque photo garde ses proportions d'origine.
+     Sur grand écran, une verticale de 901x1600 ferait près de
+     1000 px de haut : on la recadre donc en 4/3, comme les autres.
+     Le cadre épouse exactement l'image, sans marge blanche. */
+  .photo-frame { max-width: 560px; }
   .photo-frame img {
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: 100%;
-    max-height: 52vh;
-    margin-inline: auto;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    margin-inline: 0;
   }
 
   /* Photo du hero : un peu moins haute qu'en 4/5 */
