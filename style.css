@@ -493,6 +493,11 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     object-position: center;
   }
 
+  /* La Vieille Bourse reste entière, mais dans un cadre plus étroit :
+     le cadre blanc se resserre autour d'elle au lieu de l'agrandir.
+     Même principe pour toute autre verticale qu'on veut voir en entier. */
+  .photo-frame:has(img[src*="vieille-bourse"]) { max-width: 340px; }
+
   /* Photo du hero : un peu moins haute qu'en 4/5 */
   .hero-photo img { aspect-ratio: 5 / 6; }
 
