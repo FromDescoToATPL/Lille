@@ -470,20 +470,27 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
   .venue { margin-top: 2.1rem; }
   .venue h3 { font-size: 1.3rem; }
 
-  /* --- Photos : un format paysage uniforme ---
-     Sur mobile, chaque photo garde ses proportions d'origine.
-     Sur grand écran, une verticale de 901x1600 ferait près de
-     1000 px de haut : on la recadre donc en 4/3, comme les autres.
-     Le cadre épouse exactement l'image, sans marge blanche. */
+  /* --- Photos : au cas par cas ---
+     Par défaut, chaque image garde ses proportions d'origine,
+     exactement comme sur mobile : les panoramiques du marché de
+     Noël et la Vieille Bourse s'affichent entières.
+     Seules deux photos verticales sont recadrées en 4/3, parce
+     qu'elles seraient sinon démesurément hautes sur grand écran.
+     Pour en ajouter une : reprendre la règle ci-dessous en
+     changeant le nom du fichier. */
   .photo-frame { max-width: 560px; }
   .photo-frame img {
     width: 100%;
     height: auto;
     max-height: none;
+    aspect-ratio: auto;
+    margin-inline: 0;
+  }
+  .photo-frame img[src*="rue-de-gand"],
+  .photo-frame img[src*="cafe-oz"] {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
-    margin-inline: 0;
   }
 
   /* Photo du hero : un peu moins haute qu'en 4/5 */
