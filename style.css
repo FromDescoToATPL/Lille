@@ -1,4 +1,4 @@
-/* ============================================
+ /* ============================================
    Design tokens — inspirés de Lille
    ============================================ */
 :root {
@@ -469,6 +469,23 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
   /* --- Fiches d'adresses dans les pages catégories --- */
   .venue { margin-top: 2.1rem; }
   .venue h3 { font-size: 1.3rem; }
+
+  /* --- Photos : on plafonne la hauteur, pas la largeur ---
+     Une photo verticale de 901x1600 affichée sur 560 px de large
+     ferait près de 1000 px de haut. On limite à la moitié de la
+     fenêtre et la largeur suit toute seule ; le cadre blanc fait
+     alors office de passe-partout autour des portraits. */
+  .photo-frame { max-width: 620px; }
+  .photo-frame img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 52vh;
+    margin-inline: auto;
+  }
+
+  /* Photo du hero : un peu moins haute qu'en 4/5 */
+  .hero-photo img { aspect-ratio: 5 / 6; }
 
   /* --- Pied de page --- */
   footer { padding-top: 3rem; }
