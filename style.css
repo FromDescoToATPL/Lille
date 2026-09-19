@@ -426,6 +426,55 @@ html[lang^="zh"] .photo-frame figcaption {
 }
 html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 
+/* ============================================
+   Adaptations grand écran (900 px et plus)
+   Ce bloc ne s'applique jamais sur mobile :
+   tout ce qui précède reste inchangé sur petit écran.
+   ============================================ */
+@media (min-width: 900px) {
+
+  /* --- Hero : plus d'air entre le texte et la photo --- */
+  .hero { gap: 3.5rem; margin-bottom: 4rem; }
+
+  /* --- Titres de section : à l'échelle de la largeur --- */
+  .section-title { font-size: 2.1rem; margin-bottom: 1.8rem; }
+
+  /* --- Liste de rubriques --- */
+  .rubrique {
+    grid-template-columns: 21rem 1fr;
+    gap: 2.5rem;
+    padding: 2.1rem 0;
+    align-items: start;
+  }
+  .rubrique h3 { font-size: 1.45rem; }
+  /* Longueur de ligne confortable : environ 60 signes */
+  .rubrique p { max-width: 58ch; }
+  /* « En savoir plus » revient sous le texte qu'il prolonge */
+  .rubrique .more {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 0.9rem;
+  }
+
+  /* --- Bloc à la une --- */
+  .featured { padding: 2.6rem 2.4rem; }
+  .featured h2 { font-size: 1.9rem; }
+  .featured p { max-width: 62ch; }
+
+  /* --- Sommaire de fin de page --- */
+  .liens-pratiques { column-gap: 4rem; }
+  .lien-pratique { padding: 1rem 0; }
+  .lien-pratique span { max-width: 44ch; }
+
+  /* --- Fiches d'adresses dans les pages catégories --- */
+  .venue { margin-top: 2.1rem; }
+  .venue h3 { font-size: 1.3rem; }
+
+  /* --- Pied de page --- */
+  footer { padding-top: 3rem; }
+  .footer-links { gap: 0.7rem 2rem; }
+}
+
 /* ---------- Bouton « revenir en haut » ---------- */
 .haut {
   position: fixed;
