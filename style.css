@@ -10,6 +10,7 @@
   --brick-dark: #7e2e1c;
   --gold: #b8862e;
   --slate: #3c4652;
+  --featured-bg: #3c4652;
   --on-brick: #fff;
   --max-width: 780px;
 }
@@ -242,7 +243,7 @@ a.rubrique:hover .more { color: var(--brick); }
   max-width: 1040px;
   margin: 0 auto 3.5rem;
   padding: 2rem 1.5rem;
-  background: var(--slate);
+  background: var(--featured-bg);
   color: var(--cream);
   border-radius: 2px;
 }
@@ -603,7 +604,11 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     --gold: #d1a24a;
     --stone: #46392c;
     --slate: #aab3bd;
+    --featured-bg: #2a3340;
     --on-brick: #201a15;
   }
   .infos-pratiques, .affiliate-box { background: #2a231c; }
+  .featured { color: #ece4d6; }
+  .featured h2 { color: #ece4d6; }
+  .featured a.btn { color: #ece4d6; }
 }
