@@ -514,8 +514,8 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
    jusqu'à la ligne « FIN DE L'ESSAI ».
 
    POUR ESSAYER PLUTÔT LE MENU CENTRÉ SUR DEUX LIGNES :
-   supprimer ce bloc et retirer les /* */ de la variante
-   qui le suit.
+   supprimer ce bloc, puis décommenter la variante qui suit
+   (voir les indications juste en dessous).
    ========================================================== */
 @media (min-width: 900px) {
   .topbar {
@@ -548,11 +548,15 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 }
 /* ===================== FIN DE L'ESSAI ===================== */
 
-/* --- VARIANTE : menu centré, en gardant les deux lignes ---
+/* VARIANTE : menu centré, en gardant les deux lignes.
+   Pour l'activer : supprimer cette ligne de commentaire et
+   la dernière, de façon à ne laisser que la règle au milieu.
+
 @media (min-width: 900px) {
   .mainnav-inner { justify-content: center; }
 }
---- fin de la variante --- */
+
+   Fin de la variante. */
 
 /* ---------- Bouton « revenir en haut » ---------- */
 .haut {
