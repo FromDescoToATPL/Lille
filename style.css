@@ -506,6 +506,54 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
   .footer-links { gap: 0.7rem 2rem; }
 }
 
+/* ==========================================================
+   ESSAI — en-tête sur une seule ligne (grand écran seulement)
+   Nom du site à gauche, rubriques au centre, langues à droite.
+
+   POUR REVENIR À L'EN-TÊTE ACTUEL : supprimer tout ce bloc,
+   jusqu'à la ligne « FIN DE L'ESSAI ».
+
+   POUR ESSAYER PLUTÔT LE MENU CENTRÉ SUR DEUX LIGNES :
+   supprimer ce bloc et retirer les /* */ de la variante
+   qui le suit.
+   ========================================================== */
+@media (min-width: 900px) {
+  .topbar {
+    min-height: 4.6rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--stone);
+  }
+  .mainnav {
+    border-top: none;
+    border-bottom: none;
+    height: 0;
+    margin-bottom: 2.4rem;
+  }
+  .mainnav-inner {
+    height: 4.6rem;
+    margin-top: -4.6rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    /* laisse les clics atteindre le nom du site et le sélecteur
+       de langue, que cette barre recouvre */
+    pointer-events: none;
+  }
+  .mainnav a {
+    pointer-events: auto;
+    font-size: 0.9rem;
+    padding: 0.2rem 0;
+  }
+}
+/* ===================== FIN DE L'ESSAI ===================== */
+
+/* --- VARIANTE : menu centré, en gardant les deux lignes ---
+@media (min-width: 900px) {
+  .mainnav-inner { justify-content: center; }
+}
+--- fin de la variante --- */
+
 /* ---------- Bouton « revenir en haut » ---------- */
 .haut {
   position: fixed;
