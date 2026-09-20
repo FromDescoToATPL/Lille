@@ -529,6 +529,10 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     border-bottom: none;
     height: 0;
     margin-bottom: 2.4rem;
+    /* isole le bloc : sans ceci, la marge négative de
+       .mainnav-inner se fusionne avec celle-ci et fait
+       remonter tout le contenu de la page dans l'en-tête */
+    display: flow-root;
   }
   .mainnav-inner {
     height: 4.6rem;
