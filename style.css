@@ -279,7 +279,11 @@ article.post li { margin-bottom: 0.5rem; }
   margin: 2rem 0;
   background: #fbf8f1;
 }
-.infos-pratiques h2 { border: none; margin-top: 0; }
+/* "article.post .infos-pratiques h2" est plus spécifique que
+   "article.post h2" : sans ça, le titre de l'encadré héritait
+   d'une grande marge haute et laissait un vide en tête de boîte. */
+article.post .infos-pratiques h2,
+.infos-pratiques h2 { margin-top: 0; padding-bottom: 0.4rem; }
 .infos-pratiques dl { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1rem; margin: 0; }
 .infos-pratiques dt { font-weight: 600; color: var(--brick-dark); }
 .infos-pratiques dd { margin: 0; }
@@ -435,7 +439,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 @media (min-width: 900px) {
 
   /* --- Hero : plus d'air entre le texte et la photo --- */
-  .hero { gap: 3.5rem; margin-bottom: 4rem; }
+  .hero { grid-template-columns: 1.45fr 1fr; gap: 3.5rem; margin-bottom: 3.5rem; }
 
   /* --- Titres de section : à l'échelle de la largeur --- */
   .section-title { font-size: 2.1rem; margin-bottom: 1.8rem; }
@@ -499,8 +503,9 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
      Même principe pour toute autre verticale qu'on veut voir en entier. */
   .photo-frame:has(img[src*="vieille-bourse"]) { max-width: 340px; }
 
-  /* Photo du hero : un peu moins haute qu'en 4/5 */
-  .hero-photo img { aspect-ratio: 5 / 6; }
+  /* Photo du hero : carrée, pour que sa hauteur soit proche de
+     celle du texte et qu'il ne reste pas de grand vide autour */
+  .hero-photo img { aspect-ratio: 1 / 1; object-position: center 45%; }
 
   /* --- Pied de page --- */
   footer { padding-top: 3rem; }
