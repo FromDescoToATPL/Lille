@@ -505,7 +505,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 
   /* Photo du hero : carrée, pour que sa hauteur soit proche de
      celle du texte et qu'il ne reste pas de grand vide autour */
-  .hero-photo img { aspect-ratio: 1 / 1; object-position: center 45%; }
+  .hero-photo img { aspect-ratio: 1 / 1; object-position: center 65%; }
 
   /* --- Pied de page --- */
   footer { padding-top: 3rem; }
