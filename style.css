@@ -11,6 +11,8 @@
   --gold: #b8862e;
   --slate: #3c4652;
   --featured-bg: #3c4652;
+  --astuce-bg: #f7ecd6;
+  --astuce-label: #7a5a1c;
   --on-brick: #fff;
   --max-width: 780px;
 }
@@ -439,7 +441,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 @media (min-width: 900px) {
 
   /* --- Hero : plus d'air entre le texte et la photo --- */
-  .hero { grid-template-columns: 1.45fr 1fr; gap: 3.5rem; margin-bottom: 3.5rem; }
+  .hero { grid-template-columns: 1.25fr 1fr; gap: 3.5rem; margin-bottom: 3.5rem; }
 
   /* --- Titres de section : à l'échelle de la largeur --- */
   .section-title { font-size: 2.1rem; margin-bottom: 1.8rem; }
@@ -598,6 +600,27 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
   .haut { transition: none; }
 }
 
+/* ---------- Encadré « Astuce de Lillois » ----------
+   Un seul par page, réservé aux vraies astuces de local.
+   ------------------------------------------------- */
+.astuce {
+  margin: 1.6rem 0;
+  padding: 1rem 1.2rem 1.05rem;
+  background: var(--astuce-bg);
+  border-left: 4px solid var(--gold);
+  border-radius: 2px;
+}
+.astuce-label {
+  display: block;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--astuce-label);
+  margin-bottom: 0.3rem;
+}
+.astuce p { margin: 0; }
+.astuce p + p { margin-top: 0.7rem; }
+
 /* ---------- Mode sombre automatique ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -610,6 +633,8 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     --stone: #46392c;
     --slate: #aab3bd;
     --featured-bg: #2a3340;
+    --astuce-bg: #2e2616;
+    --astuce-label: #d1a24a;
     --on-brick: #201a15;
   }
   .infos-pratiques, .affiliate-box { background: #2a231c; }
