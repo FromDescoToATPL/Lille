@@ -14,6 +14,7 @@
   --astuce-bg: #f7ecd6;
   --astuce-label: #7a5a1c;
   --on-brick: #fff;
+  --frame-bg: #fff;
   --max-width: 780px;
 }
 
@@ -349,7 +350,7 @@ a:focus-visible, button:focus-visible {
   display: block;
   max-width: 560px;
   margin: 1.8rem auto;
-  background: #fff;
+  background: var(--frame-bg);
   padding: 10px;
   border: 1px solid var(--stone);
   box-shadow: 0 6px 16px rgba(50, 41, 32, 0.12);
@@ -472,6 +473,11 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
   .liens-pratiques { column-gap: 4rem; }
   .lien-pratique { padding: 1rem 0; }
   .lien-pratique span { max-width: 44ch; }
+
+  /* --- Pages de contenu : environ 70 signes par ligne ---
+     Au-delà, l'œil se perd en revenant à la ligne.
+     Les photos (560 px au plus) tiennent toujours dans cette largeur. */
+  article.post { max-width: 660px; }
 
   /* --- Fiches d'adresses dans les pages catégories --- */
   .venue { margin-top: 2.1rem; }
@@ -636,7 +642,11 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     --astuce-bg: #2e2616;
     --astuce-label: #d1a24a;
     --on-brick: #201a15;
+    /* cadre des photos : sombre, au lieu d'un blanc qui éblouit
+       et rend la légende illisible */
+    --frame-bg: #2a231c;
   }
+  .photo-frame { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
   .infos-pratiques, .affiliate-box { background: #2a231c; }
   .featured { color: #ece4d6; }
   .featured h2 { color: #ece4d6; }
