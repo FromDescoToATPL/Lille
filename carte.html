@@ -11,7 +11,7 @@
 <link rel="alternate" hreflang="fr" href="https://fromdescotoatpl.github.io/Lille/carte.html">
 <link rel="alternate" hreflang="en" href="https://fromdescotoatpl.github.io/Lille/en/carte.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=11">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
@@ -61,8 +61,10 @@
     <li><a href="excursions.html">Excursions</a></li>
     <li><a href="carte.html">Carte</a></li>
     <li><a href="itineraires.html">Itinéraires</a></li>
+    <li><a href="quand-venir.html">Quand venir</a></li>
     <li><a href="infos-pratiques.html">Infos pratiques</a></li>
     <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="mentions-legales.html">Mentions légales</a></li>
   </ul>
   <p class="footer-note">Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
 </footer>
@@ -73,13 +75,13 @@
 // description courte, et lien vers la page complète.
 // Pour corriger un point mal placé : ajuste juste "lat" et "lng".
 var lieux = [
-  { nom: "Grand'Place (Vieille Bourse)", lat: 50.6372, lng: 3.0637, cat: "lieu",
+  { nom: "Grand'Place (Vieille Bourse)", lat: 50.63684, lng: 3.06350, cat: "lieu",
     desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter.html" },
   { nom: "Beffroi de l'Hôtel de Ville", lat: 50.630633, lng: 3.069716, cat: "lieu",
     desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter.html" },
-  { nom: "Palais des Beaux-Arts", lat: 50.6304, lng: 3.0629, cat: "lieu",
+  { nom: "Palais des Beaux-Arts", lat: 50.63048, lng: 3.06279, cat: "lieu",
     desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter.html" },
-  { nom: "Citadelle de Lille", lat: 50.6429, lng: 3.0447, cat: "lieu",
+  { nom: "Citadelle de Lille", lat: 50.64093, lng: 3.04458, cat: "lieu",
     desc: "Forteresse de Vauban et son parc.", lien: "lieux-a-visiter.html" },
   { nom: "Notre-Dame-de-la-Treille", lat: 50.640196, lng: 3.062697, cat: "lieu",
     desc: "Cathédrale moderne à façade de marbre.", lien: "lieux-a-visiter.html" },
@@ -93,9 +95,9 @@ var lieux = [
   { nom: "Le Barbier qui fume", lat: 50.641395, lng: 3.062034, cat: "resto",
     desc: "Cuisine au feu de bois, décor industriel.", lien: "restaurants.html" },
 
-  { nom: "Le Solférino", lat: 50.6280, lng: 3.0530, cat: "bar",
+  { nom: "Le Solférino", lat: 50.63118, lng: 3.05460, cat: "bar",
     desc: "Bar-tabac convivial, rue Solférino.", lien: "bars.html" },
-  { nom: "Au Gré du Vin", lat: 50.6375, lng: 3.0620, cat: "bar",
+  { nom: "Au Gré du Vin", lat: 50.64110, lng: 3.06159, cat: "bar",
     desc: "Bar à vin feutré, Vieux-Lille.", lien: "bars.html" },
   { nom: "Wazemmes (place Sébastopol)", lat: 50.629293, lng: 3.058146, cat: "bar",
     desc: "Quartier éclectique, bars et bières artisanales.", lien: "bars.html" },

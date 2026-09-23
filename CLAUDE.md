@@ -22,14 +22,16 @@ et demande avant toute modification importante de structure.
 ```
 /                   pages françaises + style.css + favicon.svg + photos
 /en/                pages anglaises (mêmes noms de fichiers)
-/zh/                chinois simplifié — SEULE index.html existe pour l'instant
 /evenements/        articles d'événements, en français
 /en/evenements/     articles d'événements, en anglais
-sitemap.xml, robots.txt, google4fb4a0a25f12452b-2.html (vérification Google)
+sitemap.xml, robots.txt, google4fb4a0a25f12452b.html (vérification Google)
 ```
 
 Pages : index, evenements, lieux-a-visiter, restaurants, bars, excursions,
-carte, itineraires, quand-venir, infos-pratiques, a-propos.
+carte, itineraires, quand-venir, infos-pratiques, a-propos, mentions-legales.
+Le pied de page de chaque page contient aussi « Quand venir » et
+« Mentions légales ». Le chinois a été retiré (seul l'accueil existait) ;
+les règles de police `html[lang^="zh"]` restent dans le CSS pour plus tard.
 Articles : noel-2026, braderie-2026, foire-maneges, street-food-festival,
 biere-a-lille.
 
@@ -46,9 +48,9 @@ biere-a-lille.
    Le lien actif du menu porte la classe `active`.
 4. **Toute page ajoutée en français doit exister en anglais**, avec des
    `hreflang` croisés, et être ajoutée au `sitemap.xml`.
-5. **Cache CSS** : le lien est `style.css?v=N`. `index.html` et `en/index.html`
-   sont en `v=10`, les autres pages en `v=9`. Pour forcer le rechargement
-   partout, il faut incrémenter le numéro dans toutes les pages.
+5. **Cache CSS** : le lien est `style.css?v=N`. Toutes les pages sont en
+   `v=11` (septembre 2026). Pour forcer le rechargement partout, il faut
+   incrémenter le numéro dans toutes les pages.
 6. **Ne jamais imbriquer de commentaire CSS** (`/*` dans un `/* ... */`) :
    ça casse silencieusement tout le bloc qui suit.
 7. Vérifier l'équilibre des balises (`div`, `article`, `figure`) après
@@ -68,7 +70,10 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
   Pages chinoises : polices système (règle `html[lang^="zh"]`).
 - Mode sombre automatique (`prefers-color-scheme`), jetons redéfinis.
   Le bandeau « À la une » utilise `--featured-bg`, pas `--slate`,
-  car `--slate` devient clair en mode sombre.
+  car `--slate` devient clair en mode sombre. Même principe pour
+  `--astuce-bg` et `--frame-bg` (cadre des photos : blanc en mode clair,
+  brun foncé en mode sombre, pour que la légende reste lisible).
+- Sur PC, `article.post` est limité à 660 px (environ 70 signes par ligne).
 - **Mobile d'abord.** L'auteur est très attaché au rendu mobile actuel :
   ne jamais le modifier sans le lui demander. Les adaptations PC sont
   regroupées dans des blocs `@media (min-width: 900px)`.
@@ -89,8 +94,15 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
   photo trouvée en ligne, même créditée : c'est une contrefaçon.
 - Calibrage : 1600 px sur le grand côté, JPEG qualité 82, environ 200 à
   300 Ko.
-- En place : opera-place, vieille-bourse, rue-de-gand, cafe-oz,
-  grande-roue, chalets-noel, braderie-terrasse, braderie-rue.
+- En place : opera-place, vieille-bourse (bas recadré pour enlever les
+  pavés), rue-de-gand, cafe-oz, grande-roue, chalets-noel,
+  braderie-terrasse, braderie-rue, citadelle-porte, citadelle-douves
+  (lieux-a-visiter), place-aux-oignons, oasis-citadelle (restaurants).
+- En réserve : passage-des-arts (pour une future balade dans le
+  Vieux-Lille, page itinéraires). Une allée d'arbres de la Citadelle
+  existe aussi chez l'auteur.
+- Éviter les visages reconnaissables au premier plan (recadrer si besoin).
+  Vérifier les EXIF en cas de doute sur l'origine d'une photo.
 - Sur PC, traitement **au cas par cas** : proportions d'origine par défaut ;
   rue-de-gand et cafe-oz recadrées en 4/3 ; vieille-bourse entière dans un
   cadre resserré à 340 px. Pas de règle uniforme — l'auteur l'a refusée.
@@ -122,6 +134,9 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
 
 ## Méthode de travail
 
+- Livraison hors Claude Code : un zip rangé par dossier de destination
+  (`1-racine`, `2-dossier-en`, `3-dossier-evenements`,
+  `4-dossier-en-evenements`). L'auteur envoie un dossier à la fois.
 - Le chargement des fichiers par l'interface web de GitHub a causé des
   écrasements (fichiers anglais qui remplacent les français quand
   plusieurs dossiers sont glissés d'un coup). Avec Claude Code, travailler
@@ -133,20 +148,27 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
 ## En attente
 
 - **Delirium Café** : happy hour noté 16h-19h, à confirmer par l'auteur.
-  Coordonnées GPS à obtenir pour l'ajouter à la carte.
-- **Chinois** : traduire toutes les pages (seul l'accueil existe, ses
-  liens internes pointent vers des pages absentes). Mettre aussi à jour
-  l'accueil chinois, qui annonce encore trois villes d'excursion au lieu
-  de quatre.
-- **Nom de domaine** : une fois acheté, mettre à jour les `hreflang`, le
-  `sitemap.xml`, `robots.txt` et la vérification Search Console.
+  (Le point est déjà sur la carte.)
+- **Nom de domaine** : `regards-sur-lille.fr`, à acheter chez OVH. DNS :
+  4 enregistrements A et 4 AAAA vers GitHub Pages, CNAME `www` vers
+  `fromdescotoatpl.github.io.`. Ensuite mettre à jour les `hreflang`, le
+  `sitemap.xml`, `robots.txt`, et créer une propriété « Domaine » dans
+  Search Console.
+- **Noms de fichiers datés** : `noel-2026.html` et `braderie-2026.html`
+  contiennent une année, contraire à la règle. L'article de Noël a aussi
+  « 2026 » dans son titre. À renommer en même temps que le changement de
+  domaine, pour ne changer les adresses qu'une fois.
+- **Mesure d'audience** : GoatCounter proposé (sans cookie, gratuit pour
+  un usage non commercial). En attente de la décision de l'auteur.
+- **Carte** : coordonnées des 5 points douteux vérifiées sur Google Maps
+  en septembre 2026.
 - **Menu de langues** : passer à un menu déroulant natif seulement à
   partir de quatre ou cinq langues.
-- **Nettoyage** : `Photo-Opera.jpg` et `photo-opera.jpg` ne sont plus
-  utilisées. `beffroi.jpg` montre le beffroi de la Chambre de Commerce,
-  pas celui de l'Hôtel de Ville : ne pas l'utiliser pour ce dernier.
-- **Plus tard** : AdSense (retirer `display: none` sur `.ad-slot`),
-  affiliation Booking (nécessite le statut d'auto-entrepreneur), mentions
-  légales, compte Instagram à relier dans le pied de page.
-- **Contenu** : l'auteur relit tout pour y remettre sa voix. Priorité aux
-  nouveaux articles sur des sujets intemporels.
+- **Plus tard** : AdSense (retirer `display: none` sur `.ad-slot`, activer
+  l'outil de consentement certifié de Google, réécrire la partie données
+  personnelles des mentions légales), affiliation Booking (nécessite le
+  statut d'auto-entrepreneur, SIRET à ajouter aux mentions légales),
+  compte Instagram à relier dans le pied de page, liens « Voir sur la
+  carte » sous chaque adresse, repères de prix dans les restaurants.
+- `beffroi.jpg` montre le beffroi de la Chambre de Commerce, pas celui de
+  l'Hôtel de Ville : ne pas l'utiliser pour ce dernier.
