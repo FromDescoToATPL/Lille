@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal notice — A Look at Lille</title>
+<meta name="description" content="Legal notice for A Look at Lille: publisher, host, independence and personal data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="fr" href="https://fromdescotoatpl.github.io/Lille/mentions-legales.html">
+<link rel="alternate" hreflang="en" href="https://fromdescotoatpl.github.io/Lille/en/mentions-legales.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css?v=9">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="wordmark" href="index.html">A Look at <em>Lille</em></a>
+  <nav class="lang-switch">
+    <a href="../mentions-legales.html">FR</a>
+    <a class="active" href="mentions-legales.html">EN</a>
+  </nav>
+</div>
+
+<nav class="mainnav">
+  <div class="mainnav-inner">
+    <a href="index.html">Home</a>
+    <a href="evenements.html">Events</a>
+    <a href="lieux-a-visiter.html">Places</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="bars.html">Bars</a>
+    <a href="excursions.html">Day trips</a>
+    <a href="carte.html">Map</a>
+  </div>
+</nav>
+
+<article class="post">
+  <h1>Legal notice</h1>
+
+  <h2>Publisher</h2>
+  <p>A Look at Lille is a personal, non-commercial website published by [FIRST NAME LAST NAME], who lives in Lille.</p>
+  <p>Contact: [EMAIL ADDRESS]</p>
+  <p>Publication manager: [FIRST NAME LAST NAME]</p>
+
+  <h2>Hosting</h2>
+  <p>The site is hosted by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States.</p>
+
+  <h2>Independence</h2>
+  <p>No place mentioned on this site has paid to appear here. If an affiliate link is ever added, it will be clearly marked.</p>
+
+  <h2>Text and photos</h2>
+  <p>The text and photos on this site are the author's own. Please don't reproduce them without permission.</p>
+
+  <h2>Personal data</h2>
+  <p>This site sets no cookies and collects no personal data. To display fonts and the map background, your browser contacts outside servers, including Google Fonts. These servers receive your IP address, as with most websites.</p>
+</article>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="evenements.html">Events</a></li>
+    <li><a href="lieux-a-visiter.html">Places to see</a></li>
+    <li><a href="restaurants.html">Restaurants</a></li>
+    <li><a href="bars.html">Bars &amp; nightlife</a></li>
+    <li><a href="excursions.html">Day trips</a></li>
+    <li><a href="carte.html">Map</a></li>
+    <li><a href="itineraires.html">Itineraries</a></li>
+    <li><a href="infos-pratiques.html">Practical info</a></li>
+    <li><a href="a-propos.html">About</a></li>
+    <li><a href="mentions-legales.html">Legal notice</a></li>
+  </ul>
+  <p class="footer-note">A Look at Lille is an independent guide, not affiliated with the City of Lille or its tourist office.</p>
+</footer>
+
+<a class="haut" href="#" aria-label="Back to top of page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script>
+(function () {
+  var b = document.querySelector('.haut');
+  if (!b) return;
+  function maj() { b.classList.toggle('visible', window.scrollY > 700); }
+  window.addEventListener('scroll', maj, { passive: true });
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+  });
+  maj();
+})();
+</script>
+
+</body>
+</html>
