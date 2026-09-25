@@ -32,8 +32,12 @@ carte, itineraires, quand-venir, infos-pratiques, a-propos, mentions-legales.
 Le pied de page de chaque page contient aussi « Quand venir » et
 « Mentions légales ». Le chinois a été retiré (seul l'accueil existait) ;
 les règles de police `html[lang^="zh"]` restent dans le CSS pour plus tard.
-Articles : noel-2026, braderie-2026, foire-maneges, street-food-festival,
-biere-a-lille.
+Articles : marche-de-noel, braderie, foire-maneges, street-food-festival,
+biere-a-lille. Les anciennes adresses `noel-2026.html` et
+`braderie-2026.html` sont de petites pages de redirection (meta refresh +
+canonical), sans en-tête ni menu : c'est voulu, ne pas les « compléter »
+et ne pas les mettre dans le sitemap. Leur canonical contient l'adresse
+github.io : à mettre à jour avec le nom de domaine.
 
 ## Règles techniques — à respecter à chaque modification
 
@@ -154,21 +158,21 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
   `fromdescotoatpl.github.io.`. Ensuite mettre à jour les `hreflang`, le
   `sitemap.xml`, `robots.txt`, et créer une propriété « Domaine » dans
   Search Console.
-- **Noms de fichiers datés** : `noel-2026.html` et `braderie-2026.html`
-  contiennent une année, contraire à la règle. L'article de Noël a aussi
-  « 2026 » dans son titre. À renommer en même temps que le changement de
-  domaine, pour ne changer les adresses qu'une fois.
 - **Mesure d'audience** : GoatCounter proposé (sans cookie, gratuit pour
   un usage non commercial). En attente de la décision de l'auteur.
-- **Carte** : coordonnées des 5 points douteux vérifiées sur Google Maps
-  en septembre 2026.
+- **Carte** : coordonnées des 5 points douteux et du Delirium vérifiées sur
+  Google Maps en septembre 2026. Chaque point a un champ `id` :
+  `carte.html#citadelle` centre la carte sur ce point et ouvre sa bulle.
+  Les pages Lieux et Restaurants ont un lien « voir sur la carte » dans la
+  ligne `venue-meta`. La page Bars est rangée par quartier, sans lien.
+  Tout nouveau point doit recevoir un `id` identique en FR et en EN.
 - **Menu de langues** : passer à un menu déroulant natif seulement à
   partir de quatre ou cinq langues.
 - **Plus tard** : AdSense (retirer `display: none` sur `.ad-slot`, activer
   l'outil de consentement certifié de Google, réécrire la partie données
   personnelles des mentions légales), affiliation Booking (nécessite le
   statut d'auto-entrepreneur, SIRET à ajouter aux mentions légales),
-  compte Instagram à relier dans le pied de page, liens « Voir sur la
-  carte » sous chaque adresse, repères de prix dans les restaurants.
+  compte Instagram à relier dans le pied de page, repères de prix dans les
+  restaurants.
 - `beffroi.jpg` montre le beffroi de la Chambre de Commerce, pas celui de
   l'Hôtel de Ville : ne pas l'utiliser pour ce dernier.

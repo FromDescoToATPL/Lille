@@ -75,47 +75,47 @@
 // description courte, et lien vers la page complète.
 // Pour corriger un point mal placé : ajuste juste "lat" et "lng".
 var lieux = [
-  { nom: "Grand'Place (Vieille Bourse)", lat: 50.63684, lng: 3.06350, cat: "lieu",
+  { id: "grand-place", nom: "Grand'Place (Vieille Bourse)", lat: 50.63684, lng: 3.06350, cat: "lieu",
     desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter.html" },
-  { nom: "Beffroi de l'Hôtel de Ville", lat: 50.630633, lng: 3.069716, cat: "lieu",
+  { id: "beffroi", nom: "Beffroi de l'Hôtel de Ville", lat: 50.630633, lng: 3.069716, cat: "lieu",
     desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter.html" },
-  { nom: "Palais des Beaux-Arts", lat: 50.63048, lng: 3.06279, cat: "lieu",
+  { id: "palais-des-beaux-arts", nom: "Palais des Beaux-Arts", lat: 50.63048, lng: 3.06279, cat: "lieu",
     desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter.html" },
-  { nom: "Citadelle de Lille", lat: 50.64093, lng: 3.04458, cat: "lieu",
+  { id: "citadelle", nom: "Citadelle de Lille", lat: 50.64093, lng: 3.04458, cat: "lieu",
     desc: "Forteresse de Vauban et son parc.", lien: "lieux-a-visiter.html" },
-  { nom: "Notre-Dame-de-la-Treille", lat: 50.640196, lng: 3.062697, cat: "lieu",
+  { id: "notre-dame-de-la-treille", nom: "Notre-Dame-de-la-Treille", lat: 50.640196, lng: 3.062697, cat: "lieu",
     desc: "Cathédrale moderne à façade de marbre.", lien: "lieux-a-visiter.html" },
 
-  { nom: "Au Vieux de la Vieille", lat: 50.640878, lng: 3.061387, cat: "resto",
+  { id: "au-vieux-de-la-vieille", nom: "Au Vieux de la Vieille", lat: 50.640878, lng: 3.061387, cat: "resto",
     desc: "L'estaminet le plus connu de la ville.", lien: "restaurants.html" },
-  { nom: "La Ch'tite Brigitte", lat: 50.638393, lng: 3.058521, cat: "resto",
+  { id: "chtite-brigitte", nom: "La Ch'tite Brigitte", lat: 50.638393, lng: 3.058521, cat: "resto",
     desc: "Petite adresse rustique, gratin au maroilles.", lien: "restaurants.html" },
-  { nom: "Les Ptiots", lat: 50.642407, lng: 3.066206, cat: "resto",
+  { id: "les-ptiots", nom: "Les Ptiots", lat: 50.642407, lng: 3.066206, cat: "resto",
     desc: "Cuisine traditionnelle, rue de Gand.", lien: "restaurants.html" },
-  { nom: "Le Barbier qui fume", lat: 50.641395, lng: 3.062034, cat: "resto",
+  { id: "barbier-qui-fume", nom: "Le Barbier qui fume", lat: 50.641395, lng: 3.062034, cat: "resto",
     desc: "Cuisine au feu de bois, décor industriel.", lien: "restaurants.html" },
 
-  { nom: "Le Solférino", lat: 50.63118, lng: 3.05460, cat: "bar",
+  { id: "solferino", nom: "Le Solférino", lat: 50.63118, lng: 3.05460, cat: "bar",
     desc: "Bar-tabac convivial, rue Solférino.", lien: "bars.html" },
-  { nom: "Au Gré du Vin", lat: 50.64110, lng: 3.06159, cat: "bar",
-    desc: "Bar à vin feutré, Vieux-Lille.", lien: "bars.html" },
-  { nom: "Wazemmes (place Sébastopol)", lat: 50.629293, lng: 3.058146, cat: "bar",
-    desc: "Quartier éclectique, bars et bières artisanales.", lien: "bars.html" },
-  { nom: "Shooter's Bar", lat: 50.633031, lng: 3.055185, cat: "bar",
+  { id: "au-gre-du-vin", nom: "Au Gré du Vin", lat: 50.64110, lng: 3.06159, cat: "bar",
+    desc: "Bar à vin calme, dans le Vieux-Lille.", lien: "bars.html" },
+  { id: "wazemmes", nom: "Wazemmes (place Sébastopol)", lat: 50.629293, lng: 3.058146, cat: "bar",
+    desc: "Le quartier le plus mélangé, bars et bières artisanales.", lien: "bars.html" },
+  { id: "shooters-bar", nom: "Shooter's Bar", lat: 50.633031, lng: 3.055185, cat: "bar",
     desc: "Bar à shooters rue Masséna, avec terrasse.", lien: "bars.html" },
-  { nom: "Delirium Café", lat: 50.637945, lng: 3.066094, cat: "bar",
+  { id: "delirium-cafe", nom: "Delirium Café", lat: 50.637945, lng: 3.066094, cat: "bar",
     desc: "Deux étages, quatre comptoirs, les matchs sur grand écran.", lien: "bars.html" },
 
-  { nom: "Les Compagnons de la Grappe", lat: 50.638565, lng: 3.062862, cat: "resto",
+  { id: "compagnons-de-la-grappe", nom: "Les Compagnons de la Grappe", lat: 50.638565, lng: 3.062862, cat: "resto",
     desc: "Terrasse cachée dans une cour, 26 rue Lepelletier.", lien: "restaurants.html" },
-  { nom: "Tripletta", lat: 50.642678, lng: 3.066524, cat: "resto",
-    desc: "Italien rue de Gand. Pizzas au top, prix un peu élevés.", lien: "restaurants.html" },
-  { nom: "Oasis Lille Citadelle", lat: 50.637989, lng: 3.049129, cat: "resto",
+  { id: "tripletta", nom: "Tripletta", lat: 50.642678, lng: 3.066524, cat: "resto",
+    desc: "Italien rue de Gand. Très bonnes pizzas, prix un peu élevés.", lien: "restaurants.html" },
+  { id: "oasis-citadelle", nom: "Oasis Lille Citadelle", lat: 50.637989, lng: 3.049129, cat: "resto",
     desc: "Guinguette à l'entrée du parc de la Citadelle.", lien: "restaurants.html" },
 
-  { nom: "Parking de la Passerelle Vauban", lat: 50.644928, lng: 3.037931, cat: "parking",
+  { id: "parking-passerelle-vauban", nom: "Parking de la Passerelle Vauban", lat: 50.644928, lng: 3.037931, cat: "parking",
     desc: "Gratuit. 10 à 15 min à pied du centre par la Citadelle.", lien: "infos-pratiques.html" },
-  { nom: "Parking du Colysée", lat: 50.639012, lng: 3.034379, cat: "parking",
+  { id: "parking-colysee", nom: "Parking du Colysée", lat: 50.639012, lng: 3.034379, cat: "parking",
     desc: "Gratuit. Environ 20 min à pied du centre par le parc.", lien: "infos-pratiques.html" }
 ];
 
@@ -128,6 +128,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map);
 
+var marqueurs = {};
+
 lieux.forEach(function(l) {
   var icone = L.divIcon({
     className: '',
@@ -135,9 +137,21 @@ lieux.forEach(function(l) {
     iconSize: [14, 14],
     iconAnchor: [7, 7]
   });
-  L.marker([l.lat, l.lng], { icon: icone }).addTo(map)
+  marqueurs[l.id] = L.marker([l.lat, l.lng], { icon: icone }).addTo(map)
     .bindPopup('<b>' + l.nom + '</b><br>' + l.desc + '<br><a href="' + l.lien + '">Voir la fiche complète →</a>');
 });
+
+// Lien direct vers un lieu : « carte.html#citadelle » centre la carte
+// sur ce point et ouvre sa bulle. L'identifiant est le champ « id ».
+function allerAuLieu() {
+  var id = decodeURIComponent(location.hash.slice(1));
+  if (!marqueurs[id]) return;
+  map.setView(marqueurs[id].getLatLng(), 17);
+  marqueurs[id].openPopup();
+  document.getElementById('carte').scrollIntoView({ block: 'center' });
+}
+allerAuLieu();
+window.addEventListener('hashchange', allerAuLieu);
 </script>
 
 <a class="haut" href="#" aria-label="Revenir en haut de la page">
