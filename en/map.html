@@ -83,10 +83,10 @@
 </article>
 
 <div class="map-legend">
-  <span><span class="dot" style="background: var(--brick-dark);"></span> Places to see</span>
-  <span><span class="dot" style="background: var(--gold);"></span> Restaurants</span>
-  <span><span class="dot" style="background: var(--slate);"></span> Bars &amp; nightlife</span>
-  <span><span class="dot" style="background: #4a7c59;"></span> Free car parks</span>
+  <span><span class="pin pin-lieu" data-picto="lieu"></span> Places to see</span>
+  <span><span class="pin pin-resto" data-picto="resto"></span> Restaurants</span>
+  <span><span class="pin pin-bar" data-picto="bar"></span> Bars &amp; nightlife</span>
+  <span><span class="pin pin-parking" data-picto="parking"></span> Free car parks</span>
 </div>
 
 <div class="map-wrap">
@@ -162,7 +162,21 @@ var lieux = [
     desc: "Free. About 20 min on foot to the centre through the park.", lien: "practical-info.html" }
 ];
 
-var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652", parking: "#4a7c59" };
+// Un pictogramme par catégorie : monument, couverts, verre, P.
+// Les couleurs des points sont dans style.css (classes .pin-...).
+var pictos = {
+  lieu: "M4 20h16M6 20v-8M12 20v-8M18 20v-8M3 9l9-5 9 5z",
+  resto: "M6.5 3v5a2.5 2.5 0 0 0 5 0V3M9 3v18M17.5 21V3c-2 1.5-3 4-3 7h3",
+  bar: "M5 4h14l-7 8zM12 12v8M8 20h8",
+  parking: "M8 21V3h5.5a5 5 0 0 1 0 10H8"
+};
+function picto(cat) {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + pictos[cat] + '"/></svg>';
+}
+document.querySelectorAll('.map-legend [data-picto]').forEach(function (e) {
+  e.innerHTML = picto(e.getAttribute('data-picto'));
+});
 
 var map = L.map('carte').setView([50.6350, 3.0600], 14);
 
@@ -176,9 +190,10 @@ var marqueurs = {};
 lieux.forEach(function(l) {
   var icone = L.divIcon({
     className: '',
-    html: '<div style="width:14px;height:14px;border-radius:50%;background:' + couleurs[l.cat] + ';border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.4);"></div>',
-    iconSize: [14, 14],
-    iconAnchor: [7, 7]
+    html: '<div class="pin pin-' + l.cat + '">' + picto(l.cat) + '</div>',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -12]
   });
   marqueurs[l.id] = L.marker([l.lat, l.lng], { icon: icone }).addTo(map)
     .bindPopup('<b>' + l.nom + '</b><br>' + l.desc + '<br><a href="' + l.lien + '">See the full entry →</a>');

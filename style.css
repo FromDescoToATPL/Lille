@@ -455,7 +455,27 @@ main { display: block; }
   color: var(--slate);
 }
 .map-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
-.map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+/* Points de la carte (et de sa légende) : une couleur ET un pictogramme
+   par catégorie, pour qu'on les distingue même sans bien voir les
+   couleurs. Couleurs fixes : le fond de carte reste clair en mode sombre.
+   Le pictogramme est dessiné par le script de la page carte. */
+.pin {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.pin svg { width: 13px; height: 13px; display: block; }
+.pin-lieu { background: #a13c26; }
+.pin-resto { background: #a97a24; }
+.pin-bar { background: #3c4652; }
+.pin-parking { background: #4a7c59; }
 .leaflet-popup-content-wrapper { border-radius: 2px; font-family: 'Public Sans', sans-serif; }
 .leaflet-popup-content b { font-family: 'Fraunces', Georgia, serif; color: var(--brick-dark); }
 .leaflet-popup-content a { font-size: 0.85rem; }
