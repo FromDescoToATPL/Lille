@@ -378,12 +378,6 @@ main { display: block; }
   text-align: center;
 }
 .bandeau-langue[hidden] { display: none; }
-
-/* Petits téléphones : sélecteur de langue un peu plus compact,
-   pour que « Regards sur Lille » reste sur une seule ligne. */
-@media (max-width: 400px) {
-  .lang-switch a { padding: 0.35rem 0.5rem; font-size: 0.8rem; }
-}
 .bandeau-langue p { margin: 0; }
 .bandeau-fermer {
   flex-shrink: 0;
@@ -606,8 +600,14 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     height: 4.6rem;
     margin-top: -4.6rem;
     align-items: center;
-    justify-content: center;
-    gap: 1.4rem;
+    /* Menu calé à droite, juste avant « FR / EN » : avec huit
+       rubriques, un menu centré passait sur le nom du site.
+       8.8rem = marge du bloc + largeur de « FR / EN » + un espace.
+       Pour revenir au menu centré : remettre « center » et retirer
+       la ligne padding-right. */
+    justify-content: flex-end;
+    padding-right: 8.8rem;
+    gap: 1.2rem;
     /* laisse les clics atteindre le nom du site et le sélecteur
        de langue, que cette barre recouvre */
     pointer-events: none;

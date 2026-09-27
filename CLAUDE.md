@@ -69,11 +69,12 @@ canonical contient l'adresse github.io : à mettre à jour avec le domaine.
    `.bandeau-langue` (« This guide is also in English »), affiché par
    script seulement si le navigateur n'est pas en français.
    Menu : Accueil, Événements, Lieux, Restaurants, Bars, Excursions, Carte,
-   Infos pratiques. Sélecteur de langue : « Français / English ».
+   Infos pratiques. Sélecteur de langue : « FR / EN » (les noms longs
+   ont été refusés : ils prennent trop de place).
 4. **Toute page ajoutée en français doit exister en anglais**, avec des
    `hreflang` croisés, et être ajoutée au `sitemap.xml`.
 5. **Cache CSS** : le lien est `style.css?v=N`. Toutes les pages sont en
-   `v=12` (septembre 2026). Pour forcer le rechargement partout, il faut
+   `v=13` (septembre 2026). Pour forcer le rechargement partout, il faut
    incrémenter le numéro dans toutes les pages.
 6. **Ne jamais imbriquer de commentaire CSS** (`/*` dans un `/* ... */`) :
    ça casse silencieusement tout le bloc qui suit.
@@ -102,10 +103,12 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
   ne jamais le modifier sans le lui demander. Les adaptations PC sont
   regroupées dans des blocs `@media (min-width: 900px)`.
 - Sur PC, l'en-tête tient sur une ligne à partir de 1100 px : nom à
-  gauche, menu au centre, langues à droite (bloc « ESSAI » dans le CSS,
-  validé). Le seuil est à 1100 px et non 900 depuis l'ajout de « Infos
-  pratiques » et de « Français / English » : en dessous, le menu passait
-  sur le nom du site. Entre 900 et 1100 px, le menu est sous le nom. Il utilise une
+  gauche, menu calé à droite juste avant « FR / EN » (bloc « ESSAI » dans
+  le CSS). Avec huit rubriques, le menu centré passait sur le nom du site,
+  même sur grand écran : il est donc aligné à droite (`justify-content:
+  flex-end` + `padding-right: 8.8rem`). « Français / English » a été
+  essayé puis refusé par l'auteur : garder « FR / EN ». Entre 900 et
+  1100 px, le menu est sous le nom. Il utilise une
   marge négative ; le `display: flow-root` sur `.mainnav` est
   indispensable, sinon le contenu remonte dans l'en-tête.
 - Menu mobile : une seule ligne qui défile horizontalement. L'auteur a
