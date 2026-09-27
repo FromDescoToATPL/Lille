@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map of Lille — A Look at Lille</title>
+<meta name="description" content="Interactive map of recommended places to see, restaurants and bars in Lille.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Look at Lille">
+<meta property="og:title" content="Map of Lille">
+<meta property="og:description" content="Interactive map of recommended places to see, restaurants and bars in Lille.">
+<meta property="og:url" content="https://fromdescotoatpl.github.io/Lille/en/map.html">
+<meta property="og:image" content="https://fromdescotoatpl.github.io/Lille/opera-place.jpg">
+<meta property="og:image:alt" content="Lille Opera House and the Chamber of Commerce belfry on place du Théâtre">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="fr" href="https://fromdescotoatpl.github.io/Lille/carte.html">
+<link rel="alternate" hreflang="en" href="https://fromdescotoatpl.github.io/Lille/en/map.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css?v=12">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+</head>
+<body>
+
+<a class="evitement" href="#contenu">Skip to content</a>
+
+<div class="topbar">
+  <a class="wordmark" href="index.html">A Look at <em>Lille</em></a>
+  <nav class="lang-switch">
+    <a href="../carte.html" lang="fr">Français</a>
+    <a class="active" href="map.html" lang="en">English</a>
+  </nav>
+</div>
+
+<nav class="mainnav">
+  <div class="mainnav-inner">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="places-to-see.html">Places</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="bars.html">Bars</a>
+    <a href="day-trips.html">Day trips</a>
+    <a class="active" aria-current="page" href="map.html">Map</a>
+    <a href="practical-info.html">Practical info</a>
+  </div>
+</nav>
+
+<main id="contenu">
+
+<article class="post" style="max-width: 1040px; margin-bottom: 1.2rem;">
+  <h1>The guide's map</h1>
+  <p>Every recommended place to see, restaurant and bar from the guide, on one map. Tap or click a point to see what it is.</p>
+</article>
+
+<div class="map-legend">
+  <span><span class="dot" style="background: var(--brick-dark);"></span> Places to see</span>
+  <span><span class="dot" style="background: var(--gold);"></span> Restaurants</span>
+  <span><span class="dot" style="background: var(--slate);"></span> Bars &amp; nightlife</span>
+  <span><span class="dot" style="background: #4a7c59;"></span> Free car parks</span>
+</div>
+
+<div class="map-wrap">
+  <div id="carte"></div>
+</div>
+
+</main>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="events.html">Events</a></li>
+    <li><a href="places-to-see.html">Places to see</a></li>
+    <li><a href="restaurants.html">Restaurants</a></li>
+    <li><a href="bars.html">Bars &amp; nightlife</a></li>
+    <li><a href="day-trips.html">Day trips</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="itineraries.html">Itineraries</a></li>
+    <li><a href="when-to-visit.html">When to visit</a></li>
+    <li><a href="practical-info.html">Practical info</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="legal-notice.html">Legal notice</a></li>
+  </ul>
+  <p class="footer-note">A Look at Lille is an independent guide, not affiliated with the City of Lille or its tourist office.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// Each place: name, coordinates, category (site / food / bar),
+// short description, and link to the full page.
+// To fix a misplaced point: just adjust "lat" and "lng".
+var lieux = [
+  { id: "grand-place", nom: "Grand'Place (Vieille Bourse)", lat: 50.63684, lng: 3.06350, cat: "lieu",
+    desc: "The heart of Vieux-Lille, Flemish arcades.", lien: "places-to-see.html" },
+  { id: "beffroi", nom: "Belfry of the Town Hall", lat: 50.630633, lng: 3.069716, cat: "lieu",
+    desc: "104m, UNESCO listed, panoramic view.", lien: "places-to-see.html" },
+  { id: "palais-des-beaux-arts", nom: "Palais des Beaux-Arts", lat: 50.63048, lng: 3.06279, cat: "lieu",
+    desc: "One of the largest museums in France.", lien: "places-to-see.html" },
+  { id: "citadelle", nom: "Citadelle de Lille", lat: 50.64093, lng: 3.04458, cat: "lieu",
+    desc: "Vauban's fortress and its park.", lien: "places-to-see.html" },
+  { id: "notre-dame-de-la-treille", nom: "Notre-Dame-de-la-Treille", lat: 50.640196, lng: 3.062697, cat: "lieu",
+    desc: "Modern cathedral with a marble façade.", lien: "places-to-see.html" },
+
+  { id: "au-vieux-de-la-vieille", nom: "Au Vieux de la Vieille", lat: 50.640878, lng: 3.061387, cat: "resto",
+    desc: "The city's best-known estaminet.", lien: "restaurants.html" },
+  { id: "chtite-brigitte", nom: "La Ch'tite Brigitte", lat: 50.638393, lng: 3.058521, cat: "resto",
+    desc: "Small rustic address, maroilles gratin.", lien: "restaurants.html" },
+  { id: "les-ptiots", nom: "Les Ptiots", lat: 50.642407, lng: 3.066206, cat: "resto",
+    desc: "Traditional cooking, rue de Gand.", lien: "restaurants.html" },
+  { id: "barbier-qui-fume", nom: "Le Barbier qui fume", lat: 50.641395, lng: 3.062034, cat: "resto",
+    desc: "Wood-fired cooking, industrial decor.", lien: "restaurants.html" },
+
+  { id: "solferino", nom: "Le Solférino", lat: 50.63118, lng: 3.05460, cat: "bar",
+    desc: "Welcoming bar-tabac, rue Solférino.", lien: "bars.html" },
+  { id: "au-gre-du-vin", nom: "Au Gré du Vin", lat: 50.64110, lng: 3.06159, cat: "bar",
+    desc: "Quiet wine bar in Vieux-Lille.", lien: "bars.html" },
+  { id: "wazemmes", nom: "Wazemmes (place Sébastopol)", lat: 50.629293, lng: 3.058146, cat: "bar",
+    desc: "The most mixed district, craft beer bars.", lien: "bars.html" },
+  { id: "shooters-bar", nom: "Shooter's Bar", lat: 50.633031, lng: 3.055185, cat: "bar",
+    desc: "Shooters bar on rue Masséna, with a terrace.", lien: "bars.html" },
+  { id: "delirium-cafe", nom: "Delirium Café", lat: 50.637945, lng: 3.066094, cat: "bar",
+    desc: "Two floors, four bars, matches on big screens.", lien: "bars.html" },
+
+  { id: "compagnons-de-la-grappe", nom: "Les Compagnons de la Grappe", lat: 50.638565, lng: 3.062862, cat: "resto",
+    desc: "Hidden courtyard terrace, 26 rue Lepelletier.", lien: "restaurants.html" },
+  { id: "tripletta", nom: "Tripletta", lat: 50.642678, lng: 3.066524, cat: "resto",
+    desc: "Italian on rue de Gand. Great pizzas, on the pricey side.", lien: "restaurants.html" },
+  { id: "oasis-citadelle", nom: "Oasis Lille Citadelle", lat: 50.637989, lng: 3.049129, cat: "resto",
+    desc: "Garden café at the entrance to the Citadelle park.", lien: "restaurants.html" },
+
+  { id: "parking-passerelle-vauban", nom: "Passerelle Vauban car park", lat: 50.644928, lng: 3.037931, cat: "parking",
+    desc: "Free. A 10–15 min walk to the centre through the Citadelle.", lien: "practical-info.html" },
+  { id: "parking-colysee", nom: "Colysée car park", lat: 50.639012, lng: 3.034379, cat: "parking",
+    desc: "Free. About 20 min on foot to the centre through the park.", lien: "practical-info.html" }
+];
+
+var couleurs = { lieu: "#7e2e1c", resto: "#b8862e", bar: "#3c4652", parking: "#4a7c59" };
+
+var map = L.map('carte').setView([50.6350, 3.0600], 14);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19
+}).addTo(map);
+
+var marqueurs = {};
+
+lieux.forEach(function(l) {
+  var icone = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;border-radius:50%;background:' + couleurs[l.cat] + ';border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.4);"></div>',
+    iconSize: [14, 14],
+    iconAnchor: [7, 7]
+  });
+  marqueurs[l.id] = L.marker([l.lat, l.lng], { icon: icone }).addTo(map)
+    .bindPopup('<b>' + l.nom + '</b><br>' + l.desc + '<br><a href="' + l.lien + '">See the full entry →</a>');
+});
+
+// Lien direct vers un lieu : « carte.html#citadelle » centre la carte
+// sur ce point et ouvre sa bulle. L'identifiant est le champ « id ».
+function allerAuLieu() {
+  var id = decodeURIComponent(location.hash.slice(1));
+  if (!marqueurs[id]) return;
+  map.setView(marqueurs[id].getLatLng(), 17);
+  marqueurs[id].openPopup();
+  document.getElementById('carte').scrollIntoView({ block: 'center' });
+}
+allerAuLieu();
+window.addEventListener('hashchange', allerAuLieu);
+</script>
+
+<a class="haut" href="#" aria-label="Back to top of page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script>
+(function () {
+  var b = document.querySelector('.haut');
+  if (!b) return;
+  function maj() { b.classList.toggle('visible', window.scrollY > 700); }
+  window.addEventListener('scroll', maj, { passive: true });
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+  });
+  maj();
+})();
+</script>
+
+</body>
+</html>

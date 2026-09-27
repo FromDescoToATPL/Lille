@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — A Look at Lille</title>
+<meta name="description" content="Who writes A Look at Lille, and why this independent guide exists.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Look at Lille">
+<meta property="og:title" content="About">
+<meta property="og:description" content="Who writes A Look at Lille, and why this independent guide exists.">
+<meta property="og:url" content="https://fromdescotoatpl.github.io/Lille/en/about.html">
+<meta property="og:image" content="https://fromdescotoatpl.github.io/Lille/opera-place.jpg">
+<meta property="og:image:alt" content="Lille Opera House and the Chamber of Commerce belfry on place du Théâtre">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css?v=12">
+<link rel="alternate" hreflang="fr" href="https://fromdescotoatpl.github.io/Lille/a-propos.html">
+<link rel="alternate" hreflang="en" href="https://fromdescotoatpl.github.io/Lille/en/about.html">
+<link rel="alternate" hreflang="x-default" href="https://fromdescotoatpl.github.io/Lille/a-propos.html">
+</head>
+<body>
+
+<a class="evitement" href="#contenu">Skip to content</a>
+
+<div class="topbar">
+  <a class="wordmark" href="index.html">A Look at <em>Lille</em></a>
+  <nav class="lang-switch">
+    <a href="../a-propos.html" lang="fr">Français</a>
+    <a class="active" href="about.html" lang="en">English</a>
+  </nav>
+</div>
+
+<nav class="mainnav">
+  <div class="mainnav-inner">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="places-to-see.html">Places</a>
+    <a href="restaurants.html">Restaurants</a>
+    <a href="bars.html">Bars</a>
+    <a href="day-trips.html">Day trips</a>
+    <a href="map.html">Map</a>
+    <a href="practical-info.html">Practical info</a>
+  </div>
+</nav>
+
+<main id="contenu">
+
+<article class="post">
+  <h1>Who writes this guide?</h1>
+
+  <p>Having lived in Lille since I was a child, I've watched the city change, reinvent itself and grow, and I've ended up knowing a fair few of its corners.</p>
+
+  <p>Living in Vieux-Lille, welsh and carbonnade are second nature by now. Whether it's the estaminet <strong>La Vieille France</strong> or <strong>Au Vieux de la Vieille</strong>, it's always a pleasure to go back. But Lille isn't only Flemish food. I'm just as fond of Asian cooking, Thai, Vietnamese or Korean, and there's plenty of choice here for every taste.</p>
+
+  <p>And then there are the bars. They're probably what I know best about this city; my student years are catching up with me. The good addresses are on the <a href="bars.html">bars page</a>.</p>
+
+  <h2>Why this guide?</h2>
+
+  <p>Watching tourism grow year after year, the idea came to build a proper site in several languages, to help a wider audience coming from far away who want to discover Lille and its good spots.</p>
+
+  <p>Lille is an hour from Paris by train, which makes it well worth the detour. And that's before you count Brussels, Ghent, Bruges or even London. Lille sits more or less at the centre of that area, where everything is about an hour away.</p>
+</article>
+
+</main>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="events.html">Events</a></li>
+    <li><a href="places-to-see.html">Places to see</a></li>
+    <li><a href="restaurants.html">Restaurants</a></li>
+    <li><a href="bars.html">Bars &amp; nightlife</a></li>
+    <li><a href="day-trips.html">Day trips</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="itineraries.html">Itineraries</a></li>
+    <li><a href="when-to-visit.html">When to visit</a></li>
+    <li><a href="practical-info.html">Practical info</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="legal-notice.html">Legal notice</a></li>
+  </ul>
+  <p class="footer-note">A Look at Lille is an independent guide, not affiliated with the City of Lille or its tourist office.</p>
+</footer>
+
+<a class="haut" href="#" aria-label="Back to top of page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+<script>
+(function () {
+  var b = document.querySelector('.haut');
+  if (!b) return;
+  function maj() { b.classList.toggle('visible', window.scrollY > 700); }
+  window.addEventListener('scroll', maj, { passive: true });
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+  });
+  maj();
+})();
+</script>
+
+</body>
+</html>
