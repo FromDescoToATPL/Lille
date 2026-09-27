@@ -390,9 +390,6 @@ main { display: block; }
   cursor: pointer;
 }
 
-/* Flèche des cartes de l'accueil : assez grande pour être vue */
-.rubrique .more { font-size: 1.2rem; font-style: normal; line-height: 1; }
-
 /* ---------- Photos ---------- */
 .photo-frame {
   display: block;
@@ -569,7 +566,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 }
 
 /* ==========================================================
-   ESSAI — en-tête sur une seule ligne (à partir de 1100 px)
+   ESSAI — en-tête sur une seule ligne (grand écran seulement)
    Nom du site à gauche, rubriques au centre, langues à droite.
 
    POUR REVENIR À L'EN-TÊTE ACTUEL : supprimer tout ce bloc,
@@ -579,7 +576,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
    supprimer ce bloc, puis décommenter la variante qui suit
    (voir les indications juste en dessous).
    ========================================================== */
-@media (min-width: 1100px) {
+@media (min-width: 900px) {
   .topbar {
     min-height: 4.6rem;
     padding-top: 0;
@@ -600,14 +597,8 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     height: 4.6rem;
     margin-top: -4.6rem;
     align-items: center;
-    /* Menu calé à droite, juste avant « FR / EN » : avec huit
-       rubriques, un menu centré passait sur le nom du site.
-       8.8rem = marge du bloc + largeur de « FR / EN » + un espace.
-       Pour revenir au menu centré : remettre « center » et retirer
-       la ligne padding-right. */
-    justify-content: flex-end;
-    padding-right: 8.8rem;
-    gap: 1.2rem;
+    justify-content: center;
+    gap: 1.4rem;
     /* laisse les clics atteindre le nom du site et le sélecteur
        de langue, que cette barre recouvre */
     pointer-events: none;
