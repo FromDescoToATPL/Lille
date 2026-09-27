@@ -70,10 +70,16 @@ canonical contient l'adresse github.io : à mettre à jour avec le domaine.
    script seulement si le navigateur n'est pas en français.
    Menu : Accueil, Événements, Lieux, Restaurants, Bars, Excursions, Carte
    (sept rubriques, pas plus). Sélecteur de langue : « FR / EN ».
+   Les deux `<nav>` ont un nom pour les lecteurs d'écran : `.lang-switch`
+   porte `aria-label="Langue"` (EN : « Language »), `.mainnav` porte
+   `aria-label="Menu principal"` (EN : « Main menu »). Juste après le
+   `</nav>` du menu vient le petit script du menu mobile (fondu sur le
+   bord, onglet actif ramené à l'écran) : le copier tel quel depuis une
+   page existante.
 4. **Toute page ajoutée en français doit exister en anglais**, avec des
    `hreflang` croisés, et être ajoutée au `sitemap.xml`.
 5. **Cache CSS** : le lien est `style.css?v=N`. Toutes les pages sont en
-   `v=14` (septembre 2026). Pour forcer le rechargement partout, il faut
+   `v=15` (septembre 2026). Pour forcer le rechargement partout, il faut
    incrémenter le numéro dans toutes les pages.
 6. **Ne jamais imbriquer de commentaire CSS** (`/*` dans un `/* ... */`) :
    ça casse silencieusement tout le bloc qui suit.
@@ -88,7 +94,16 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
 --cream #f6f1e6   --band #ece2ce   --stone #ddd2bb   --ink #322920
 --brick #a13c26   --brick-dark #7e2e1c   --gold #b8862e
 --slate #3c4652   --featured-bg #3c4652   --on-brick #fff
+--gold-text #876220   --featured-tag #dcb05a   --box-bg #fbf8f1
 ```
+
+- **Petits textes dorés** (étiquettes, adresses `venue-meta`, « En savoir
+  plus », survol des liens) : toujours `--gold-text`, jamais `--gold`.
+  `--gold` sur le crème ne donne qu'un contraste de 2,9 (4,5 demandé) ;
+  `--gold-text` donne 4,9. `--gold` reste pour les filets, bordures et
+  soulignés. « À la une » sur l'ardoise : `--featured-tag`. En mode
+  sombre, les deux valent `#d1a24a`. Validé par l'auteur (septembre 2026).
+- Fond des encadrés `.infos-pratiques` et `.affiliate-box` : `--box-bg`.
 
 - Polices : Fraunces (titres) et Public Sans (texte), via Google Fonts.
   Pages chinoises : polices système (règle `html[lang^="zh"]`).
@@ -110,7 +125,11 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
   marge négative ; le `display: flow-root` sur `.mainnav` est
   indispensable, sinon le contenu remonte dans l'en-tête.
 - Menu mobile : une seule ligne qui défile horizontalement. L'auteur a
-  refusé la version sur deux lignes.
+  refusé la version sur deux lignes. Depuis septembre 2026 (validé) : un
+  fondu sur le bord signale les rubriques cachées (classes `.suite-gauche`
+  / `.suite-droite` posées par le script du menu), et sur les pages du
+  bout du menu (Bars, Excursions, Carte) le menu défile tout seul jusqu'à
+  l'onglet actif. Sur PC le menu tient : pas de fondu.
 - Transitions entre pages (`@view-transition`), respectant
   `prefers-reduced-motion`.
 - Emplacements publicitaires `.ad-slot` présents mais masqués
@@ -134,6 +153,10 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
 - Sur PC, traitement **au cas par cas** : proportions d'origine par défaut ;
   rue-de-gand et cafe-oz recadrées en 4/3 ; vieille-bourse entière dans un
   cadre resserré à 340 px. Pas de règle uniforme — l'auteur l'a refusée.
+- Chaque `<img>` porte `width` et `height` (les vraies dimensions du
+  fichier, pour que la page ne saute pas au chargement) et
+  `loading="lazy" decoding="async"`, sauf la photo d'accueil
+  (opera-place), qui porte `fetchpriority="high"`.
 - Placer une photo après le texte qu'elle illustre, jamais juste avant un
   bloc sans rapport (une image se lit comme illustrant ce qui la précède).
 - Une photo tous les deux ou trois blocs, pas une par lieu.
@@ -154,6 +177,11 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
 - Les articles d'événements sont **intemporels** : « chaque année début
   octobre », avec les dates de l'année en cours en exemple. Pas de
   millésime dans les titres ni les noms de fichiers.
+- Le marché de Noël (FR et EN) a dans son `<head>` un bloc de données
+  structurées pour Google (`application/ld+json`, type Event) avec ses
+  dates : **les mettre à jour chaque année en même temps que le texte**.
+  N'en ajouter à un autre événement que si la page donne des dates
+  précises (pas pour « début octobre »).
 - Vérifier chaque fait (date, adresse, prix, ligne de métro) avant de
   l'écrire. En cas de sources contradictoires, ne pas publier de chiffre
   précis.
@@ -180,7 +208,8 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
 - **Nom de domaine** : `regards-sur-lille.fr`, à acheter chez OVH. DNS :
   4 enregistrements A et 4 AAAA vers GitHub Pages, CNAME `www` vers
   `fromdescotoatpl.github.io.`. Ensuite mettre à jour les `hreflang`, le
-  `sitemap.xml`, `robots.txt`, et créer une propriété « Domaine » dans
+  `sitemap.xml`, `robots.txt`, les balises Open Graph, les données
+  structurées du marché de Noël, et créer une propriété « Domaine » dans
   Search Console.
 - **Mesure d'audience** : GoatCounter proposé (sans cookie, gratuit pour
   un usage non commercial). En attente de la décision de l'auteur.
@@ -190,6 +219,10 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
   Les pages Lieux et Restaurants ont un lien « voir sur la carte » dans la
   ligne `venue-meta`. La page Bars est rangée par quartier, sans lien.
   Tout nouveau point doit recevoir un `id` identique en FR et en EN.
+  Points de 24 px avec un pictogramme par catégorie (monument, couverts,
+  verre, P) : les couleurs sont dans `style.css` (`.pin-lieu`,
+  `.pin-resto`, `.pin-bar`, `.pin-parking`), les pictogrammes dans le
+  script de `carte.html` et `en/map.html`. La légende utilise les mêmes.
 - **Menu de langues** : passer à un menu déroulant natif seulement à
   partir de quatre ou cinq langues.
 - **Plus tard** : AdSense (retirer `display: none` sur `.ad-slot`, activer
