@@ -22,6 +22,7 @@
   --astuce-label: #7a5a1c;
   --on-brick: #fff;
   --frame-bg: #fff;
+  --box-bg: #fbf8f1;
   --max-width: 780px;
 }
 
@@ -54,7 +55,9 @@ a {
 }
 a:hover { color: var(--gold-text); }
 
-img { max-width: 100%; display: block; }
+/* height: auto : les photos ont leurs dimensions dans le HTML
+   (width, height) pour que la page ne saute pas pendant le chargement. */
+img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Layout shells ---------- */
 .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
@@ -262,6 +265,9 @@ a.rubrique:hover .more { color: var(--brick); }
   display: block;
   margin-bottom: 0.4rem;
 }
+/* « voir sur la carte » : ne se coupe plus sur deux lignes, et la zone
+   à toucher est plus haute (sans rien changer à l'affichage). */
+.venue .venue-meta a { white-space: nowrap; padding-block: 0.4rem; }
 .venue p { margin: 0.2rem 0 0; }
 
 /* ---------- Featured ---------- */
@@ -303,7 +309,7 @@ article.post li { margin-bottom: 0.5rem; }
   border-left: 4px solid var(--brick);
   padding: 1.2rem 1.4rem;
   margin: 2rem 0;
-  background: #fbf8f1;
+  background: var(--box-bg);
 }
 /* "article.post .infos-pratiques h2" est plus spécifique que
    "article.post h2" : sans ça, le titre de l'encadré héritait
@@ -336,7 +342,7 @@ article.post .infos-pratiques h2,
   border: 1px solid var(--stone);
   padding: 1rem 1.2rem;
   margin: 1.6rem 0;
-  background: #fbf8f1;
+  background: var(--box-bg);
 }
 .affiliate-box .tag { font-size: 0.8rem; color: var(--gold-text); }
 
@@ -357,7 +363,8 @@ footer {
   padding: 0;
   list-style: none;
 }
-.footer-links a { color: var(--ink); text-decoration: none; font-size: 0.92rem; }
+/* padding-block : zone à toucher plus haute, sans décaler les liens */
+.footer-links a { color: var(--ink); text-decoration: none; font-size: 0.92rem; padding-block: 0.3rem; }
 .footer-links a:hover { color: var(--brick); }
 .footer-note { margin: 0; }
 
@@ -584,7 +591,6 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     width: 100%;
     height: auto;
     max-height: none;
-    aspect-ratio: auto;
     margin-inline: 0;
   }
   .photo-frame img[src*="rue-de-gand"],
@@ -735,9 +741,9 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     /* cadre des photos : sombre, au lieu d'un blanc qui éblouit
        et rend la légende illisible */
     --frame-bg: #2a231c;
+    --box-bg: #2a231c;
   }
   .photo-frame { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
-  .infos-pratiques, .affiliate-box { background: #2a231c; }
   .featured { color: #ece4d6; }
   .featured h2 { color: #ece4d6; }
   .featured a.btn { color: #ece4d6; }
