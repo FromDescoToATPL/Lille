@@ -67,6 +67,33 @@
     <a href="carte.html">Carte</a>
   </div>
 </nav>
+<script>
+// Menu sur mobile : s'il dépasse de l'écran, un fondu montre les
+// rubriques cachées, et le menu défile jusqu'à la page en cours.
+(function () {
+  var m = document.querySelector('.mainnav-inner');
+  if (!m) return;
+  var a = m.querySelector('a.active');
+  function centrer() {
+    if (!a) return;
+    var r = a.getBoundingClientRect(), c = m.getBoundingClientRect();
+    if (r.right > c.right - 48 || r.left < c.left) {
+      m.scrollLeft += r.left - c.left - (c.width - r.width) / 2;
+    }
+  }
+  function maj() {
+    var reste = m.scrollWidth - m.clientWidth - m.scrollLeft;
+    m.classList.toggle('suite-gauche', m.scrollLeft > 2);
+    m.classList.toggle('suite-droite', reste > 2);
+  }
+  m.addEventListener('scroll', maj, { passive: true });
+  window.addEventListener('resize', maj);
+  centrer();
+  maj();
+  // La police du site arrive parfois après : on recale une fois chargée.
+  if (document.fonts) document.fonts.ready.then(function () { centrer(); maj(); });
+})();
+</script>
 
 <main id="contenu">
 

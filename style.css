@@ -119,6 +119,22 @@ img { max-width: 100%; display: block; }
   -webkit-overflow-scrolling: touch;
 }
 .mainnav-inner::-webkit-scrollbar { display: none; }
+/* Menu trop large pour l'écran (mobile) : fondu sur le bord où des
+   rubriques sont cachées, pour montrer qu'on peut faire défiler.
+   Les classes sont posées par le petit script placé juste après
+   le menu dans chaque page. Sur PC le menu tient : rien ne change. */
+.mainnav-inner.suite-droite {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent);
+          mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent);
+}
+.mainnav-inner.suite-gauche {
+  -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 3rem), transparent);
+          mask-image: linear-gradient(to left, #000 calc(100% - 3rem), transparent);
+}
+.mainnav-inner.suite-gauche.suite-droite {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+}
 .mainnav a {
   padding: 0.8rem 0;
   font-size: 0.95rem;
