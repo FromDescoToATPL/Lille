@@ -345,6 +345,60 @@ a:focus-visible, button:focus-visible {
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* Lien « Aller au contenu » : caché au-dessus de l'écran,
+   il n'apparaît que lorsqu'on navigue au clavier (touche Tab). */
+.evitement {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 100;
+  padding: 0.55rem 0.9rem;
+  background: var(--brick);
+  color: var(--on-brick);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 3px 3px;
+  transform: translateY(-120%);
+}
+.evitement:focus { transform: none; color: var(--on-brick); }
+main { display: block; }
+
+/* Bandeau « This guide is also in English », pages françaises :
+   affiché seulement si le navigateur n'est pas réglé en français,
+   et plus jamais une fois refermé. */
+.bandeau-langue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: var(--band);
+  border-bottom: 1px solid var(--stone);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.bandeau-langue[hidden] { display: none; }
+
+/* Petits téléphones : sélecteur de langue un peu plus compact,
+   pour que « Regards sur Lille » reste sur une seule ligne. */
+@media (max-width: 400px) {
+  .lang-switch a { padding: 0.35rem 0.5rem; font-size: 0.8rem; }
+}
+.bandeau-langue p { margin: 0; }
+.bandeau-fermer {
+  flex-shrink: 0;
+  background: none;
+  border: 0;
+  padding: 0.2rem 0.45rem;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* Flèche des cartes de l'accueil : assez grande pour être vue */
+.rubrique .more { font-size: 1.2rem; font-style: normal; line-height: 1; }
+
 /* ---------- Photos ---------- */
 .photo-frame {
   display: block;
@@ -521,7 +575,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
 }
 
 /* ==========================================================
-   ESSAI — en-tête sur une seule ligne (grand écran seulement)
+   ESSAI — en-tête sur une seule ligne (à partir de 1100 px)
    Nom du site à gauche, rubriques au centre, langues à droite.
 
    POUR REVENIR À L'EN-TÊTE ACTUEL : supprimer tout ce bloc,
@@ -531,7 +585,7 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
    supprimer ce bloc, puis décommenter la variante qui suit
    (voir les indications juste en dessous).
    ========================================================== */
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .topbar {
     min-height: 4.6rem;
     padding-top: 0;

@@ -21,9 +21,10 @@ et demande avant toute modification importante de structure.
 
 ```
 /                   pages françaises + style.css + favicon.svg + photos
-/en/                pages anglaises (mêmes noms de fichiers)
+/en/                pages anglaises (noms de fichiers en anglais)
 /evenements/        articles d'événements, en français
-/en/evenements/     articles d'événements, en anglais
+/en/events/         articles d'événements, en anglais
+/en/evenements/     anciennes adresses anglaises : redirections seulement
 sitemap.xml, robots.txt, google4fb4a0a25f12452b.html (vérification Google)
 ```
 
@@ -33,27 +34,46 @@ Le pied de page de chaque page contient aussi « Quand venir » et
 « Mentions légales ». Le chinois a été retiré (seul l'accueil existait) ;
 les règles de police `html[lang^="zh"]` restent dans le CSS pour plus tard.
 Articles : marche-de-noel, braderie, foire-maneges, street-food-festival,
-biere-a-lille. Les anciennes adresses `noel-2026.html` et
-`braderie-2026.html` sont de petites pages de redirection (meta refresh +
-canonical), sans en-tête ni menu : c'est voulu, ne pas les « compléter »
-et ne pas les mettre dans le sitemap. Leur canonical contient l'adresse
-github.io : à mettre à jour avec le nom de domaine.
+biere-a-lille.
+
+Correspondance des noms anglais (septembre 2026) :
+evenements → events, lieux-a-visiter → places-to-see, excursions →
+day-trips, carte → map, itineraires → itineraries, quand-venir →
+when-to-visit, infos-pratiques → practical-info, a-propos → about,
+mentions-legales → legal-notice ; index, restaurants, bars inchangés.
+Articles : marche-de-noel → christmas-market, foire-maneges → funfair,
+biere-a-lille → beer-in-lille ; braderie et street-food-festival inchangés.
+
+Redirections : les anciennes adresses (noms français dans `/en/`, tout
+`/en/evenements/`, `noel-2026.html`, `braderie-2026.html`) sont de petites
+pages avec meta refresh + canonical, sans en-tête ni menu. C'est voulu :
+ne pas les « compléter » et ne pas les mettre dans le sitemap. Leur
+canonical contient l'adresse github.io : à mettre à jour avec le domaine.
 
 ## Règles techniques — à respecter à chaque modification
 
 1. **Noms de fichiers en minuscules, sans accent, avec tirets.**
    GitHub Pages est sensible à la casse : `Photo.jpg` ≠ `photo.jpg`.
 2. **Chemins relatifs selon la profondeur.** Racine : `style.css`.
-   `en/` et `evenements/` : `../style.css`. `en/evenements/` : `../../style.css`.
+   `en/` et `evenements/` : `../style.css`. `en/events/` : `../../style.css`.
    Même logique pour les photos et le favicon. Jamais de chemin absolu `/...`.
 3. **Chaque page doit contenir** : l'en-tête (`.topbar` + `.lang-switch`),
    le menu (`.mainnav`), le pied de page (`.footer-links`), les balises
-   `hreflang`, le favicon, et le bouton `.haut` avec son script en fin de page.
-   Le lien actif du menu porte la classe `active`.
+   `hreflang`, les balises Open Graph (og:title, og:description, og:image
+   en URL absolue, og:url, og:type, og:locale, twitter:card), le favicon,
+   le lien d'évitement `.evitement` en tout début de `<body>`, le contenu
+   dans `<main id="contenu">`, et le bouton `.haut` avec son script en fin
+   de page. Le lien actif du menu porte la classe `active` et
+   `aria-current` (« page » sur la page elle-même, « true » dans un
+   article de la rubrique). Les pages françaises ont en plus le bandeau
+   `.bandeau-langue` (« This guide is also in English »), affiché par
+   script seulement si le navigateur n'est pas en français.
+   Menu : Accueil, Événements, Lieux, Restaurants, Bars, Excursions, Carte,
+   Infos pratiques. Sélecteur de langue : « Français / English ».
 4. **Toute page ajoutée en français doit exister en anglais**, avec des
    `hreflang` croisés, et être ajoutée au `sitemap.xml`.
 5. **Cache CSS** : le lien est `style.css?v=N`. Toutes les pages sont en
-   `v=11` (septembre 2026). Pour forcer le rechargement partout, il faut
+   `v=12` (septembre 2026). Pour forcer le rechargement partout, il faut
    incrémenter le numéro dans toutes les pages.
 6. **Ne jamais imbriquer de commentaire CSS** (`/*` dans un `/* ... */`) :
    ça casse silencieusement tout le bloc qui suit.
@@ -81,8 +101,11 @@ Palette inspirée de Lille (brique flamande, crème, dorure de la Déesse) :
 - **Mobile d'abord.** L'auteur est très attaché au rendu mobile actuel :
   ne jamais le modifier sans le lui demander. Les adaptations PC sont
   regroupées dans des blocs `@media (min-width: 900px)`.
-- Sur PC, l'en-tête tient sur une ligne : nom à gauche, menu au centre,
-  langues à droite (bloc « ESSAI » dans le CSS, validé). Il utilise une
+- Sur PC, l'en-tête tient sur une ligne à partir de 1100 px : nom à
+  gauche, menu au centre, langues à droite (bloc « ESSAI » dans le CSS,
+  validé). Le seuil est à 1100 px et non 900 depuis l'ajout de « Infos
+  pratiques » et de « Français / English » : en dessous, le menu passait
+  sur le nom du site. Entre 900 et 1100 px, le menu est sous le nom. Il utilise une
   marge négative ; le `display: flow-root` sur `.mainnav` est
   indispensable, sinon le contenu remonte dans l'en-tête.
 - Menu mobile : une seule ligne qui défile horizontalement. L'auteur a
@@ -140,7 +163,7 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
 
 - Livraison hors Claude Code : un zip rangé par dossier de destination
   (`1-racine`, `2-dossier-en`, `3-dossier-evenements`,
-  `4-dossier-en-evenements`). L'auteur envoie un dossier à la fois.
+  `4-dossier-en-events`). L'auteur envoie un dossier à la fois.
 - Le chargement des fichiers par l'interface web de GitHub a causé des
   écrasements (fichiers anglais qui remplacent les français quand
   plusieurs dossiers sont glissés d'un coup). Avec Claude Code, travailler
@@ -172,7 +195,14 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
   l'outil de consentement certifié de Google, réécrire la partie données
   personnelles des mentions légales), affiliation Booking (nécessite le
   statut d'auto-entrepreneur, SIRET à ajouter aux mentions légales),
-  compte Instagram à relier dans le pied de page, repères de prix dans les
-  restaurants.
+  compte Instagram à relier dans le pied de page, page « Où dormir » par
+  quartier (Vieux-Lille, gares, Wazemmes) pour l'affiliation hôtels, dont
+  l'auteur fournira le contenu.
+- **Fiches restaurants** : chaque adresse doit avoir la même ligne
+  d'infos : adresse · quartier · type de cuisine · budget (€/€€/€€€) ·
+  réservation conseillée ou non. L'auteur fournira les budgets. Ne jamais
+  inventer un prix ou un type de cuisine.
+- **Fiches bars** : la page Bars est rangée par quartier, sans fiche par
+  bar. L'auteur doit dire quels bars mettre en fiche.
 - `beffroi.jpg` montre le beffroi de la Chambre de Commerce, pas celui de
   l'Hôtel de Ville : ne pas l'utiliser pour ce dernier.
