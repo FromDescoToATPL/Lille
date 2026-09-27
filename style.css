@@ -9,6 +9,13 @@
   --brick: #a13c26;
   --brick-dark: #7e2e1c;
   --gold: #b8862e;
+  /* Doré pour les petits textes (étiquettes, adresses, « En savoir plus ») :
+     plus soutenu que --gold, qui reste pour les filets et les soulignés.
+     --gold sur le fond crème ne se lisait pas bien (contraste 2,9 pour 4,5
+     demandé) ; --gold-text atteint 4,9. --featured-tag : même rôle sur le
+     bandeau « À la une ». */
+  --gold-text: #876220;
+  --featured-tag: #dcb05a;
   --slate: #3c4652;
   --featured-bg: #3c4652;
   --astuce-bg: #f7ecd6;
@@ -45,7 +52,7 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-a:hover { color: var(--gold); }
+a:hover { color: var(--gold-text); }
 
 img { max-width: 100%; display: block; }
 
@@ -163,11 +170,11 @@ img { max-width: 100%; display: block; }
   color: inherit;
 }
 .rubrique:last-child { border-bottom: none; }
-a.rubrique:hover h3 { color: var(--gold); }
+a.rubrique:hover h3 { color: var(--gold-text); }
 
 .rubrique h3 { margin-bottom: 0.25rem; font-size: 1.3rem; }
 .rubrique p { margin: 0; color: var(--slate); }
-.rubrique .tag { font-size: 0.85rem; color: var(--gold); }
+.rubrique .tag { font-size: 0.85rem; color: var(--gold-text); }
 
 .rubrique .more {
   display: block;
@@ -175,7 +182,7 @@ a.rubrique:hover h3 { color: var(--gold); }
   font-family: 'Fraunces', Georgia, serif;
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--gold);
+  color: var(--gold-text);
   text-align: right;
 }
 a.rubrique:hover .more { color: var(--brick); }
@@ -235,7 +242,7 @@ a.rubrique:hover .more { color: var(--brick); }
 .venue h3 { font-size: 1.2rem; color: var(--brick-dark); margin-bottom: 0.45rem; }
 .venue .venue-meta {
   font-size: 0.88rem;
-  color: var(--gold);
+  color: var(--gold-text);
   display: block;
   margin-bottom: 0.4rem;
 }
@@ -250,7 +257,7 @@ a.rubrique:hover .more { color: var(--brick); }
   color: var(--cream);
   border-radius: 2px;
 }
-.featured .tag { color: var(--gold); font-size: 0.9rem; }
+.featured .tag { color: var(--featured-tag); font-size: 0.9rem; }
 .featured h2 { color: var(--cream); margin-top: 0.3rem; }
 .featured p { color: #d9dee3; }
 .featured a.btn {
@@ -315,7 +322,7 @@ article.post .infos-pratiques h2,
   margin: 1.6rem 0;
   background: #fbf8f1;
 }
-.affiliate-box .tag { font-size: 0.8rem; color: var(--gold); }
+.affiliate-box .tag { font-size: 0.8rem; color: var(--gold-text); }
 
 /* ---------- Footer ---------- */
 footer {
@@ -681,6 +688,8 @@ html[lang^="zh"] .wordmark { font-family: 'Fraunces', serif; }
     --brick: #d97a52;
     --brick-dark: #e8916d;
     --gold: #d1a24a;
+    --gold-text: #d1a24a;
+    --featured-tag: #d1a24a;
     --stone: #46392c;
     --slate: #aab3bd;
     --featured-bg: #2a3340;
