@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fromdescotoatpl.github.io/Lille/sitemap.xml
+Sitemap: https://www.regards-sur-lille.com/sitemap.xml

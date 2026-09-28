@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable · Regards sur Lille</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Exception à la règle des chemins relatifs : cette page s'affiche à
+     n'importe quelle adresse introuvable (/evenements/xyz, /en/abc...),
+     donc ses liens partent de la racine du site (/). -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css?v=15">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="wordmark" href="/">Regards sur <em>Lille</em></a>
+  <nav class="lang-switch" aria-label="Langue">
+    <a class="active" href="/" lang="fr">FR</a>
+    <a href="/en/" lang="en">EN</a>
+  </nav>
+</div>
+
+<main id="contenu">
+<article class="post">
+  <h1>Cette page n'existe pas</h1>
+  <p>L'adresse est peut-être mal tapée, ou la page a changé de place. Le plus simple est de repartir de l'accueil, ou de chercher sur la carte.</p>
+  <p><a href="/">Revenir à l'accueil</a> · <a href="/carte">Voir la carte du guide</a></p>
+
+  <div lang="en">
+    <h2>Page not found</h2>
+    <p>The address may be mistyped, or the page has moved. <a href="/en/">Go to the English home page</a> · <a href="/en/map">See the map</a></p>
+  </div>
+</article>
+</main>
+
+</body>
+</html>

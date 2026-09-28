@@ -1,0 +1,8 @@
+# Réglages Cloudflare Pages : demander aux moteurs de recherche
+# de ne pas indexer les fichiers techniques du dépôt.
+/CLAUDE.md
+  X-Robots-Tag: noindex
+/google4fb4a0a25f12452b.html
+  X-Robots-Tag: noindex
+/google4fb4a0a25f12452b
+  X-Robots-Tag: noindex

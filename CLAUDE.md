@@ -11,11 +11,27 @@ et demande avant toute modification importante de structure.
 ## Hébergement
 
 - Site statique HTML + CSS, sans framework ni étape de compilation.
-- Hébergé sur GitHub Pages, branche `main`, publié depuis la racine.
-- Dépôt : https://github.com/FromDescoToATPL/Lille
-- En ligne : https://fromdescotoatpl.github.io/Lille/
-- Google Search Console vérifié, `sitemap.xml` soumis.
-- Nom de domaine prévu : `regards-sur-lille.fr`, pas encore acheté.
+- Dépôt : https://github.com/FromDescoToATPL/Lille (branche `main`).
+- Hébergé sur **Cloudflare Pages** (projet `regards-sur-lille`, compte
+  de l'auteur) depuis septembre 2026 : chaque push sur `main` est publié
+  tout seul en une minute. Build : aucun (pas de commande, dossier de
+  sortie = racine). Adresse technique : https://regards-sur-lille.pages.dev
+- Adresse officielle : **https://www.regards-sur-lille.com**. Domaines
+  `regards-sur-lille.com` et `.fr` achetés chez OVH le 27/09/2026
+  (particulier, protection des données activée). Le DNS est géré par
+  Cloudflare (serveurs julio / kay.ns.cloudflare.com) ; seuls les MX et
+  le SPF d'OVH y sont gardés pour l'email. `regards-sur-lille.com` sans
+  www et le `.fr` redirigent vers l'adresse officielle.
+- Choix de Cloudflare : gratuit ET pub autorisée. Vercel gratuit interdit
+  la pub (AdSense cité noir sur blanc dans ses conditions).
+- Cloudflare Pages enlève le `.html` des adresses : `carte.html` est
+  servie en `/carte` (redirection automatique). Les liens du site sont
+  donc écrits sans `.html` (voir règle 2).
+- Ancienne adresse : https://fromdescotoatpl.github.io/Lille/ (GitHub
+  Pages). Chaque page déclare l'adresse officielle en `canonical`, ce qui
+  renvoie Google vers le nouveau domaine. Search Console était vérifié
+  sur l'ancienne adresse : à refaire pour le domaine (propriété
+  « Domaine », vérification par TXT dans le DNS Cloudflare).
 
 ## Structure
 
@@ -24,8 +40,10 @@ et demande avant toute modification importante de structure.
 /en/                pages anglaises (noms de fichiers en anglais)
 /evenements/        articles d'événements, en français
 /en/events/         articles d'événements, en anglais
-/en/evenements/     anciennes adresses anglaises : redirections seulement
 sitemap.xml, robots.txt, google4fb4a0a25f12452b.html (vérification Google)
+_redirects          anciennes adresses -> nouvelles (301), lu par Cloudflare
+_headers            « noindex » sur les fichiers techniques (CLAUDE.md...)
+404.html            page « introuvable » FR + EN, servie par Cloudflare
 ```
 
 Pages : index, evenements, lieux-a-visiter, restaurants, bars, excursions,
@@ -45,21 +63,29 @@ Articles : marche-de-noel → christmas-market, foire-maneges → funfair,
 biere-a-lille → beer-in-lille ; braderie et street-food-festival inchangés.
 
 Redirections : les anciennes adresses (noms français dans `/en/`, tout
-`/en/evenements/`, `noel-2026.html`, `braderie-2026.html`) sont de petites
-pages avec meta refresh + canonical, sans en-tête ni menu. C'est voulu :
-ne pas les « compléter » et ne pas les mettre dans le sitemap. Leur
-canonical contient l'adresse github.io : à mettre à jour avec le domaine.
+`/en/evenements/`, `noel-2026`, `braderie-2026`) sont dans le fichier
+`_redirects` (redirections permanentes 301, avec et sans `.html`). Elles
+remplacent depuis septembre 2026 les petites pages HTML à meta refresh.
+Pour renommer une page un jour : ajouter une ligne `ancienne nouvelle 301`.
 
 ## Règles techniques — à respecter à chaque modification
 
 1. **Noms de fichiers en minuscules, sans accent, avec tirets.**
-   GitHub Pages est sensible à la casse : `Photo.jpg` ≠ `photo.jpg`.
+   L'hébergement est sensible à la casse : `Photo.jpg` ≠ `photo.jpg`.
 2. **Chemins relatifs selon la profondeur.** Racine : `style.css`.
    `en/` et `evenements/` : `../style.css`. `en/events/` : `../../style.css`.
-   Même logique pour les photos et le favicon. Jamais de chemin absolu `/...`.
+   Même logique pour les photos et le favicon. Jamais de chemin absolu `/...`
+   (seule exception : `404.html`, affichée à n'importe quelle adresse).
+   **Liens entre pages sans `.html`** : `href="carte"`, `href="../restaurants"`,
+   `href="evenements/braderie"`, `carte#citadelle`. L'accueil s'écrit
+   `href="./"` à la racine, `href="../"` depuis un sous-dossier, `href="en/"`
+   pour l'accueil anglais. Adresses absolues (hreflang, og:url, og:image,
+   canonical, sitemap, données structurées) : `https://www.regards-sur-lille.com/...`,
+   sans `.html`, avec `/` pour l'accueil et `/en/` pour l'accueil anglais.
 3. **Chaque page doit contenir** : l'en-tête (`.topbar` + `.lang-switch`),
    le menu (`.mainnav`), le pied de page (`.footer-links`), les balises
-   `hreflang`, les balises Open Graph (og:title, og:description, og:image
+   `hreflang`, la balise `<link rel="canonical">` (même adresse que
+   og:url, juste après elle), les balises Open Graph (og:title, og:description, og:image
    en URL absolue, og:url, og:type, og:locale, twitter:card), le favicon,
    le lien d'évitement `.evitement` en tout début de `<body>`, le contenu
    dans `<main id="contenu">`, et le bouton `.haut` avec son script en fin
@@ -205,14 +231,16 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
 
 - **Delirium Café** : happy hour noté 16h-19h, à confirmer par l'auteur.
   (Le point est déjà sur la carte.)
-- **Nom de domaine** : `regards-sur-lille.fr`, à acheter chez OVH. DNS :
-  4 enregistrements A et 4 AAAA vers GitHub Pages, CNAME `www` vers
-  `fromdescotoatpl.github.io.`. Ensuite mettre à jour les `hreflang`, le
-  `sitemap.xml`, `robots.txt`, les balises Open Graph, les données
-  structurées du marché de Noël, et créer une propriété « Domaine » dans
-  Search Console.
-- **Mesure d'audience** : GoatCounter proposé (sans cookie, gratuit pour
-  un usage non commercial). En attente de la décision de l'auteur.
+- **Suite du passage au domaine** (septembre 2026) : propriété
+  « Domaine » dans Search Console + envoi du sitemap ; email
+  `contact@regards-sur-lille.com` (Zimbra OVH gratuit) à créer par
+  l'auteur puis à ajouter aux mentions légales FR + EN ; réactiver le
+  DNSSEC depuis Cloudflare (il a été coupé chez OVH pour le changement de
+  serveurs DNS) ; arrêter plus tard la copie GitHub Pages.
+- **Mesure d'audience** : Cloudflare Web Analytics (gratuit, sans cookie,
+  déjà dans le compte) plutôt que GoatCounter. À activer avec l'accord de
+  l'auteur, puis le signaler dans la partie données personnelles des
+  mentions légales.
 - **Carte** : coordonnées des 5 points douteux et du Delirium vérifiées sur
   Google Maps en septembre 2026. Chaque point a un champ `id` :
   `carte.html#citadelle` centre la carte sur ce point et ouvre sa bulle.

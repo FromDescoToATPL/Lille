@@ -9,8 +9,9 @@
 <meta property="og:site_name" content="Regards sur Lille">
 <meta property="og:title" content="Carte de Lille">
 <meta property="og:description" content="Carte interactive des lieux à visiter, restaurants et bars recommandés à Lille.">
-<meta property="og:url" content="https://fromdescotoatpl.github.io/Lille/carte.html">
-<meta property="og:image" content="https://fromdescotoatpl.github.io/Lille/opera-place.jpg">
+<meta property="og:url" content="https://www.regards-sur-lille.com/carte">
+<link rel="canonical" href="https://www.regards-sur-lille.com/carte">
+<meta property="og:image" content="https://www.regards-sur-lille.com/opera-place.jpg">
 <meta property="og:image:alt" content="L'Opéra de Lille et le beffroi de la Chambre de Commerce, place du Théâtre">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
@@ -18,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="alternate" hreflang="fr" href="https://fromdescotoatpl.github.io/Lille/carte.html">
-<link rel="alternate" hreflang="en" href="https://fromdescotoatpl.github.io/Lille/en/map.html">
+<link rel="alternate" hreflang="fr" href="https://www.regards-sur-lille.com/carte">
+<link rel="alternate" hreflang="en" href="https://www.regards-sur-lille.com/en/map">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css?v=15">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -27,7 +28,7 @@
 <body>
 
 <div class="bandeau-langue" lang="en" hidden>
-  <p>This guide is also in English. <a href="en/map.html">Read this page in English →</a></p>
+  <p>This guide is also in English. <a href="en/map">Read this page in English →</a></p>
   <button type="button" class="bandeau-fermer" aria-label="Close">×</button>
 </div>
 <script>
@@ -49,22 +50,22 @@
 <a class="evitement" href="#contenu">Aller au contenu</a>
 
 <div class="topbar">
-  <a class="wordmark" href="index.html">Regards sur <em>Lille</em></a>
+  <a class="wordmark" href="./">Regards sur <em>Lille</em></a>
   <nav class="lang-switch" aria-label="Langue">
-    <a class="active" href="carte.html" lang="fr">FR</a>
-    <a href="en/map.html" lang="en">EN</a>
+    <a class="active" href="carte" lang="fr">FR</a>
+    <a href="en/map" lang="en">EN</a>
   </nav>
 </div>
 
 <nav class="mainnav" aria-label="Menu principal">
   <div class="mainnav-inner">
-    <a href="index.html">Accueil</a>
-    <a href="evenements.html">Événements</a>
-    <a href="lieux-a-visiter.html">Lieux</a>
-    <a href="restaurants.html">Restaurants</a>
-    <a href="bars.html">Bars</a>
-    <a href="excursions.html">Excursions</a>
-    <a class="active" aria-current="page" href="carte.html">Carte</a>
+    <a href="./">Accueil</a>
+    <a href="evenements">Événements</a>
+    <a href="lieux-a-visiter">Lieux</a>
+    <a href="restaurants">Restaurants</a>
+    <a href="bars">Bars</a>
+    <a href="excursions">Excursions</a>
+    <a class="active" aria-current="page" href="carte">Carte</a>
   </div>
 </nav>
 <script>
@@ -117,17 +118,17 @@
 
 <footer>
   <ul class="footer-links">
-    <li><a href="evenements.html">Événements</a></li>
-    <li><a href="lieux-a-visiter.html">Lieux à visiter</a></li>
-    <li><a href="restaurants.html">Restaurants</a></li>
-    <li><a href="bars.html">Bars &amp; sorties</a></li>
-    <li><a href="excursions.html">Excursions</a></li>
-    <li><a href="carte.html">Carte</a></li>
-    <li><a href="itineraires.html">Itinéraires</a></li>
-    <li><a href="quand-venir.html">Quand venir</a></li>
-    <li><a href="infos-pratiques.html">Infos pratiques</a></li>
-    <li><a href="a-propos.html">À propos</a></li>
-    <li><a href="mentions-legales.html">Mentions légales</a></li>
+    <li><a href="evenements">Événements</a></li>
+    <li><a href="lieux-a-visiter">Lieux à visiter</a></li>
+    <li><a href="restaurants">Restaurants</a></li>
+    <li><a href="bars">Bars &amp; sorties</a></li>
+    <li><a href="excursions">Excursions</a></li>
+    <li><a href="carte">Carte</a></li>
+    <li><a href="itineraires">Itinéraires</a></li>
+    <li><a href="quand-venir">Quand venir</a></li>
+    <li><a href="infos-pratiques">Infos pratiques</a></li>
+    <li><a href="a-propos">À propos</a></li>
+    <li><a href="mentions-legales">Mentions légales</a></li>
   </ul>
   <p class="footer-note">Regards sur Lille est un guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</p>
 </footer>
@@ -139,47 +140,47 @@
 // Pour corriger un point mal placé : ajuste juste "lat" et "lng".
 var lieux = [
   { id: "grand-place", nom: "Grand'Place (Vieille Bourse)", lat: 50.63684, lng: 3.06350, cat: "lieu",
-    desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter.html" },
+    desc: "Le cœur du Vieux-Lille, arcades flamandes.", lien: "lieux-a-visiter" },
   { id: "beffroi", nom: "Beffroi de l'Hôtel de Ville", lat: 50.630633, lng: 3.069716, cat: "lieu",
-    desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter.html" },
+    desc: "104 m, classé UNESCO, vue panoramique.", lien: "lieux-a-visiter" },
   { id: "palais-des-beaux-arts", nom: "Palais des Beaux-Arts", lat: 50.63048, lng: 3.06279, cat: "lieu",
-    desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter.html" },
+    desc: "L'un des plus grands musées de France.", lien: "lieux-a-visiter" },
   { id: "citadelle", nom: "Citadelle de Lille", lat: 50.64093, lng: 3.04458, cat: "lieu",
-    desc: "Forteresse de Vauban et son parc.", lien: "lieux-a-visiter.html" },
+    desc: "Forteresse de Vauban et son parc.", lien: "lieux-a-visiter" },
   { id: "notre-dame-de-la-treille", nom: "Notre-Dame-de-la-Treille", lat: 50.640196, lng: 3.062697, cat: "lieu",
-    desc: "Cathédrale moderne à façade de marbre.", lien: "lieux-a-visiter.html" },
+    desc: "Cathédrale moderne à façade de marbre.", lien: "lieux-a-visiter" },
 
   { id: "au-vieux-de-la-vieille", nom: "Au Vieux de la Vieille", lat: 50.640878, lng: 3.061387, cat: "resto",
-    desc: "L'estaminet le plus connu de la ville.", lien: "restaurants.html" },
+    desc: "L'estaminet le plus connu de la ville.", lien: "restaurants" },
   { id: "chtite-brigitte", nom: "La Ch'tite Brigitte", lat: 50.638393, lng: 3.058521, cat: "resto",
-    desc: "Petite adresse rustique, gratin au maroilles.", lien: "restaurants.html" },
+    desc: "Petite adresse rustique, gratin au maroilles.", lien: "restaurants" },
   { id: "les-ptiots", nom: "Les Ptiots", lat: 50.642407, lng: 3.066206, cat: "resto",
-    desc: "Cuisine traditionnelle, rue de Gand.", lien: "restaurants.html" },
+    desc: "Cuisine traditionnelle, rue de Gand.", lien: "restaurants" },
   { id: "barbier-qui-fume", nom: "Le Barbier qui fume", lat: 50.641395, lng: 3.062034, cat: "resto",
-    desc: "Cuisine au feu de bois, décor industriel.", lien: "restaurants.html" },
+    desc: "Cuisine au feu de bois, décor industriel.", lien: "restaurants" },
 
   { id: "solferino", nom: "Le Solférino", lat: 50.63118, lng: 3.05460, cat: "bar",
-    desc: "Bar-tabac convivial, rue Solférino.", lien: "bars.html" },
+    desc: "Bar-tabac convivial, rue Solférino.", lien: "bars" },
   { id: "au-gre-du-vin", nom: "Au Gré du Vin", lat: 50.64110, lng: 3.06159, cat: "bar",
-    desc: "Bar à vin calme, dans le Vieux-Lille.", lien: "bars.html" },
+    desc: "Bar à vin calme, dans le Vieux-Lille.", lien: "bars" },
   { id: "wazemmes", nom: "Wazemmes (place Sébastopol)", lat: 50.629293, lng: 3.058146, cat: "bar",
-    desc: "Le quartier le plus mélangé, bars et bières artisanales.", lien: "bars.html" },
+    desc: "Le quartier le plus mélangé, bars et bières artisanales.", lien: "bars" },
   { id: "shooters-bar", nom: "Shooter's Bar", lat: 50.633031, lng: 3.055185, cat: "bar",
-    desc: "Bar à shooters rue Masséna, avec terrasse.", lien: "bars.html" },
+    desc: "Bar à shooters rue Masséna, avec terrasse.", lien: "bars" },
   { id: "delirium-cafe", nom: "Delirium Café", lat: 50.637945, lng: 3.066094, cat: "bar",
-    desc: "Deux étages, quatre comptoirs, les matchs sur grand écran.", lien: "bars.html" },
+    desc: "Deux étages, quatre comptoirs, les matchs sur grand écran.", lien: "bars" },
 
   { id: "compagnons-de-la-grappe", nom: "Les Compagnons de la Grappe", lat: 50.638565, lng: 3.062862, cat: "resto",
-    desc: "Terrasse cachée dans une cour, 26 rue Lepelletier.", lien: "restaurants.html" },
+    desc: "Terrasse cachée dans une cour, 26 rue Lepelletier.", lien: "restaurants" },
   { id: "tripletta", nom: "Tripletta", lat: 50.642678, lng: 3.066524, cat: "resto",
-    desc: "Italien rue de Gand. Très bonnes pizzas, prix un peu élevés.", lien: "restaurants.html" },
+    desc: "Italien rue de Gand. Très bonnes pizzas, prix un peu élevés.", lien: "restaurants" },
   { id: "oasis-citadelle", nom: "Oasis Lille Citadelle", lat: 50.637989, lng: 3.049129, cat: "resto",
-    desc: "Guinguette à l'entrée du parc de la Citadelle.", lien: "restaurants.html" },
+    desc: "Guinguette à l'entrée du parc de la Citadelle.", lien: "restaurants" },
 
   { id: "parking-passerelle-vauban", nom: "Parking de la Passerelle Vauban", lat: 50.644928, lng: 3.037931, cat: "parking",
-    desc: "Gratuit. 10 à 15 min à pied du centre par la Citadelle.", lien: "infos-pratiques.html" },
+    desc: "Gratuit. 10 à 15 min à pied du centre par la Citadelle.", lien: "infos-pratiques" },
   { id: "parking-colysee", nom: "Parking du Colysée", lat: 50.639012, lng: 3.034379, cat: "parking",
-    desc: "Gratuit. Environ 20 min à pied du centre par le parc.", lien: "infos-pratiques.html" }
+    desc: "Gratuit. Environ 20 min à pied du centre par le parc.", lien: "infos-pratiques" }
 ];
 
 // Un pictogramme par catégorie : monument, couverts, verre, P.
