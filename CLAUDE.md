@@ -237,10 +237,11 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
   l'auteur puis à ajouter aux mentions légales FR + EN ; réactiver le
   DNSSEC depuis Cloudflare (il a été coupé chez OVH pour le changement de
   serveurs DNS) ; arrêter plus tard la copie GitHub Pages.
-- **Mesure d'audience** : Cloudflare Web Analytics (gratuit, sans cookie,
-  déjà dans le compte) plutôt que GoatCounter. À activer avec l'accord de
-  l'auteur, puis le signaler dans la partie données personnelles des
-  mentions légales.
+- **Mesure d'audience** : Cloudflare Web Analytics, activé le 28/09/2026
+  (projet Pages > Metrics). Cloudflare ajoute lui-même son script à chaque
+  déploiement : ne pas l'écrire dans les pages. Signalé dans la partie
+  données personnelles des mentions légales FR + EN. Pas d'autre outil
+  de statistiques.
 - **Carte** : coordonnées des 5 points douteux et du Delirium vérifiées sur
   Google Maps en septembre 2026. Chaque point a un champ `id` :
   `carte.html#citadelle` centre la carte sur ce point et ouvre sa bulle.
