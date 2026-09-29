@@ -208,10 +208,12 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
   dates : **les mettre à jour chaque année en même temps que le texte**.
   N'en ajouter à un autre événement que si la page donne des dates
   précises (pas pour « début octobre »).
-  Le bloc contient `offers` (prix 0 €, entrée gratuite). `organizer` et
-  `performer` sont volontairement absents : organisateur non vérifié, et
-  pas d'artiste pour un marché. Search Console le signale en « non
-  critique », c'est sans effet sur l'affichage.
+  Le bloc contient `offers` (prix 0 €, entrée gratuite) et `organizer`
+  (Fédération lilloise du commerce, de l'artisanat et des services, en
+  partenariat avec la Ville de Lille : donné par l'auteur, confirmé par
+  la presse, aussi affiché dans l'encadré « En bref »). `performer` est
+  volontairement absent : pas d'artiste pour un marché. Search Console le
+  signale en « non critique », c'est sans effet sur l'affichage.
 - Vérifier chaque fait (date, adresse, prix, ligne de métro) avant de
   l'écrire. En cas de sources contradictoires, ne pas publier de chiffre
   précis.
