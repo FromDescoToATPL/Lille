@@ -208,7 +208,8 @@ L'auteur veut un site qui sonne humain, pas rédigé par une IA.
   dates : **les mettre à jour chaque année en même temps que le texte**.
   N'en ajouter à un autre événement que si la page donne des dates
   précises (pas pour « début octobre »).
-  Le bloc contient `offers` (prix 0 €, entrée gratuite) et `organizer`
+  Le bloc contient `offers` (prix 0 €, entrée gratuite, `validFrom` = date
+  d'ouverture : à changer aussi chaque année) et `organizer`
   (Fédération lilloise du commerce, de l'artisanat et des services, en
   partenariat avec la Ville de Lille : donné par l'auteur, confirmé par
   la presse, aussi affiché dans l'encadré « En bref »). `performer` est
